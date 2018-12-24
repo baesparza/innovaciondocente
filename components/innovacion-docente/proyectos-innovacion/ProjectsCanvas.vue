@@ -208,7 +208,7 @@ export default {
       if (area.biologica) return "#00981c";
       if (area.sociohumanistica) return "#34d4ea";
       if (area.tecnica) return "#ffd76b";
-      return "#ff00ff";
+      return "#a3a3a3";
     },
     randomIntFromRange(min, max) {
       return Math.random() * (max - min + 1) + min;
