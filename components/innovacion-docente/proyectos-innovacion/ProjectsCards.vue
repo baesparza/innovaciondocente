@@ -52,9 +52,9 @@ export default {
   display: grid;
   grid-gap: 50px;
 
-  grid-auto-rows: 400px;
+  grid-auto-rows: 450px;
   grid-auto-flow: row dense;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 }
 
