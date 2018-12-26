@@ -21,7 +21,7 @@
           <VideoModal :videoID='tip.id' />
           <p class="auto-break">{{tip.description|slice(0,250)}}</p>
           <router-link class="btn btn-inverse btn-large"
-                       :to="{name: 'formacion-docente-programa-formacion-potencia-formacion'}">
+                       :to="{name: 'formacion-docente-programa-formacion-innovaTics'}">
             Tips de expertos
           </router-link>
         </div>
