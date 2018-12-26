@@ -1,93 +1,92 @@
 <template>
   <div class="scroll-container">
-    <div class="features">
-      <header>
-        <div class="container">
-          <h2 class="tittle">ASCENDERE IN</h2>
-          <nav>
-            <ul><a href="#noticias"
-                 :class="{'active': activeNoticia}">NOTICIAS <i class="fas fa-angle-right"></i></a></ul>
-            <ul><a href="#cursos"
-                 :class="{'active': activeCurso}">CURSOS <i class="fas fa-angle-right"></i></a></ul>
-            <ul><a href="#tips"
-                 :class="{'active': activeTips}">TIPS <i class="fas fa-angle-right"></i></a></ul>
-          </nav>
-        </div>
-      </header>
-      <div class="content">
-        <div id="noticias">
-          <div class="row">
-            <div class="col-md-6 content-card">
-              <figure class="">
-                <img :src="noticia.img"
-                     alt="Imagen Cafe">
-              </figure>
-              <div class="description">
-                <h3 v-if="noticia.title">{{noticia.title | slice(0,80)}}</h3>
-                <p>{{noticia.description}}</p>
-              </div>
-            </div>
-            <div class="col-md-6 content-card">
-              <figure class="">
-                <img :src="noticia.img"
-                     alt="Imagen Cafe">
-              </figure>
-              <div class="description">
-                <h3 v-if="noticia.title">{{noticia.title | slice(0,80)}}</h3>
-                <p>{{noticia.description}}</p>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="scroll-bar">
+          <div class="scroll-bar-container">
+            <h2 class="scroll-bar-container-title">ASCENDERE IN</h2>
+            <ul>
+              <li v-for="(section,id) in sections"
+                  :key="id">
+                <a :href="'#'.id"
+                   :class="{'active': section.active}">{{section.name}} <i class="fas fa-angle-right"></i></a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div id="cursos">
-          <div class="row">
-            <div class="col-md-6 content-card">
-              <figure class="">
-                <img :src="curso.img"
-                     alt="Imagen Cafe">
-              </figure>
-              <div class="description">
-                <h3 v-if="curso.title">{{curso.title | slice(0,80)}}</h3>
-                <p>{{curso.description}}</p>
-              </div>
-            </div>
-            <div class="col-md-6 content-card">
-              <figure class="">
-                <img :src="curso.img"
-                     alt="Imagen Cafe">
-              </figure>
-              <div class="description">
-                <h3 v-if="curso.title">{{curso.title | slice(0,80)}}</h3>
-                <p>{{curso.description}}</p>
-              </div>
-            </div>
-          </div>
+      </div>
 
-        </div>
-        <div id="tips">
-          <div class="row">
-            <div class="col-md-6 content-card">
-              <figure class="">
-                <img :src="tips.img"
-                     alt="Imagen Cafe">
-              </figure>
-              <div class="description">
-                <h3 v-if="tips.title">{{tips.title | slice(0,80)}}</h3>
-                <p>{{tips.description}}</p>
-              </div>
+      <!-- data -->
+      <div class="col-md-8">
+
+        <section id="noticias">
+          <h3 class="section-name">
+            Ultimas Noticias
+          </h3>
+          <div class="card-container">
+
+            <div class="card">
+              <h4 class="card-title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut aliquid possimus.
+              </h4>
             </div>
-            <div class="col-md-6 content-card">
-              <figure class="">
-                <img :src="tips.img"
-                     alt="Imagen Cafe">
-              </figure>
-              <div class="description">
-                <h3 v-if="tips.title">{{tips.title | slice(0,80)}}</h3>
-                <p>{{tips.description}}</p>
-              </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+            <div class="card">
+              ashfsfasd
             </div>
           </div>
-        </div>
+        </section>
+        <section id="cursos">
+          <h3 class="section-name">
+            Proximos Cursos
+          </h3>
+          <div class="card-container">
+
+            <div class="card">
+              <h4 class="card-title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut aliquid possimus.
+              </h4>
+              
+            </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+          </div>
+        </section>
+        <section id="innovaTips">
+          <h3 class="section-name">
+            Ultimos Tips
+          </h3>
+          <div class="card-container">
+
+            <div class="card">
+              <h4 class="card-title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut aliquid possimus.
+              </h4>
+            </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+            <div class="card">
+              ashfsfasd
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
   </div>
@@ -132,9 +131,20 @@ export default {
       noticia,
       curso,
       tips,
-      activeNoticia: false,
-      activeCurso: false,
-      activeTips: false
+      sections: {
+        noticias: {
+          name: "Noticias",
+          active: false
+        },
+        cursos: {
+          name: "Cursos",
+          active: false
+        },
+        innovaTips: {
+          name: "InnovaTips",
+          active: false
+        }
+      }
     };
   },
   async mounted() {
@@ -186,44 +196,29 @@ export default {
     handleScroll(event) {
       const spyNot = document.querySelectorAll("#noticias");
       const spyCur = document.querySelectorAll("#cursos");
-      const spyTip = document.querySelectorAll("#tips");
+      const spyTip = document.querySelectorAll("#innovaTips");
       spyNot.forEach(el => {
-        const elTop = el.getBoundingClientRect().top - 100;
-        const elBottom = el.getBoundingClientRect().bottom - 100;
-        if (elTop >= 0 || elBottom <= 0) {
-          this.activeNoticia = false;
-        }
-        if (elTop <= 0 && elBottom >= 0) {
-          this.activeNoticia = true;
-        }
+        this.sections.noticias.active = this.validator(el);
       });
       spyCur.forEach(el => {
-        const elTop = el.getBoundingClientRect().top - 100;
-        const elBottom = el.getBoundingClientRect().bottom - 100;
-        if (elTop >= 0 || elBottom <= 0) {
-          this.activeCurso = false;
-        }
-        if (elTop <= 0 && elBottom >= 0) {
-          this.activeCurso = true;
-        }
+        this.sections.cursos.active = this.validator(el);
       });
       spyTip.forEach(el => {
-        const elTop = el.getBoundingClientRect().top - 100;
-        const elBottom = el.getBoundingClientRect().bottom - 100;
-        if (elTop >= 0 || elBottom <= 0) {
-          this.activeTips = false;
-        }
-        if (elTop <= 0 && elBottom >= 0) {
-          this.activeTips = true;
-        }
+        this.sections.innovaTips.active = this.validator(el);
       });
+    },
+    validator(el) {
+      const elTop = el.getBoundingClientRect().top - 100;
+      const elBottom = el.getBoundingClientRect().bottom - 100;
+      return !(elTop >= 0 || elBottom <= 0);
     }
   },
   created() {
-    window.addEventListener("scroll", this.handleScroll);
+    if (process.browser) window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
-    window.removeEventListener("scroll", this.handleScroll);
+    if (process.browser)
+      window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
@@ -231,84 +226,64 @@ export default {
 <style lang="scss" scoped>
 @import "assets/variables";
 .scroll-container {
-  background: #f9f9fa;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+div[class^="col-md-"] {
   padding: 0;
-  position: relative;
 }
-.scroll-container::before {
-  // background-image: linear-gradient(
-  //   143deg,
-  //   #ff1ad9 0,
-  //   #ff24c7 8%,
-  //   #ff30b2 18%,
-  //   #ff9400 100%
-  // );
-  background-image: linear-gradient(
-    143deg,
-    #2980B9 0,
-    #2471a3 8%,
-    #1f618d 18%,
-    #34495E 100%
-  );
-  bottom: 0;
-  content: "";
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 30%;
-}
-.container {
-  padding: 80px 40px 60px 20%;
-  position: sticky;
-  top: 0;
-  left: 0;
-}
-header {
-  background: 0 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  text-align: left;
-  top: 0;
-  width: 35%;
+.scroll-bar {
+  width: 100%;
+  height: 100%;
   color: $color-text-primary;
   z-index: 100;
-}
-.content {
-  padding-left: 35%;
-  padding-right: 5%;
-}
-figure {
-  overflow: hidden;
-  padding-top: 1rem;
-  padding-bottom: 50% !important;
-  height: 0;
-  margin: 10px;
-  bor img {
-    display: block;
-    width: 100%;
+  background-image: linear-gradient(
+    143deg,
+    #2980b9 0,
+    #2471a3 8%,
+    #1f618d 18%,
+    #044a80 100%
+  );
+  &-container {
+    padding: 80px 40px 60px 20%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    &-title {
+      padding-bottom: 20px;
+      font-size: 1.7em;
+    }
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    cursor: pointer;
+  }
+  a {
+    font-size: 1.5em;
+    color: $color-text-primary;
+  }
+  .active {
+    color: $color-secondary;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: default;
   }
 }
-.content-card {
-  padding: 50px 10px 40px 10px;
+section {
+  padding: 20px;
 }
-ul {
-  padding-left: 0;
-}
-h2 {
-  padding-bottom: 20px;
-}
-.tittle {
-  font-size: 1.7em;
-}
-a {
-  font-size: 1.5em;
-  color: $color-text-primary;
-}
-.active {
-  color: $color-secondary;
-  font-weight: 700;
-  text-decoration: none;
-  cursor: default;
+.card-container {
+  display: grid;
+  grid-auto-rows: 400px;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 20px;
 }
 </style>

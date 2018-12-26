@@ -3,49 +3,26 @@
     <header>
       <h1>Portafolio de Cursos</h1>
     </header>
-    <!--
-    <div class="container">
-      <form v-on:submit.prevent="onSubmit">
-        <div class="form-group">
-          <label for="busqueda">Buscar Curso</label>
-          <input v-model="query"
-                 type="text"
-                 id="busqueda"
-                 class="form-control"
-                 placeholder="Nombre Curso">
-        </div>
-      </form>
-    </div>
-    -->
-    <div class="container-fluid">
-      <div class="alert alert-danger"
-           v-if="cursos && cursos.length == 0">
-        No se encontraton cursos
+    <div class="custom-container">
+      <div class="alert alert-success"
+           v-if="cursos == null">
+        <p>Cargando...</p>
       </div>
-      <div v-if="cursos">
-        <div class="row">
-          <nuxt-link class="col-xl-2 col-lg-3 col-md-4 col-sm-6 curso"
+      <div v-else-if="cursos.length > 0">
+        <div class="grid">
+          <CursoCard :curso="curso"
                      v-for="curso in cursos"
                      :key="curso.id"
-                     :to="{name: 'formacion-docente-programa-formacion-id', params: {id: curso.id}}"
-                     tag="div">
-            <div class="card card__one link">
-              <figure class="card__img">
-                <img v-lazy="curso.img"
-                     alt="imagen curso">
-              </figure>
-              <div class="card__desc">
-                <h4>{{curso.name | slice(0,50)}}</h4>
-                <small>
-                  <i class="fas fa-calendar-alt"></i> {{curso.date | dateTimestamp}}</small>
-              </div>
-            </div>
-          </nuxt-link>
+                     class="card" />
         </div>
+      </div>
+      <div class="alert alert-danger"
+           v-else>
+        <p>No se encontraton cursos.</p>
       </div>
       <button @click="$router.go(-1)"
               class="btn btn-primary btn-large">
-        RegresarW
+        Regresar
       </button>
     </div>
   </div>
@@ -53,8 +30,10 @@
 
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
+import CursoCard from "@/components/cards/CursoCard";
 
 export default {
+  components: { CursoCard },
   data() {
     return { cursos: null };
   },
@@ -78,7 +57,37 @@ export default {
 
 <style lang="scss" scoped>
 @import "assets/header";
-@import "assets/form";
-@import "assets/card";
 @import "assets/alert";
+
+.custom-container {
+  padding: 15px;
+}
+.grid {
+  padding-bottom: 15px;
+  display: grid;
+  grid-auto-rows: 225px;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  @media only screen and (max-width: 1400px) {
+    & {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    & {
+      grid-gap: 15px;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    & {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
 </style>
