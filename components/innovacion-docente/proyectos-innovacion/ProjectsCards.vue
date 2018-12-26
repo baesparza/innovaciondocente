@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+    <!-- TODO: move to pages this component -->
     <div class="grid">
       <ProjectCard :proyecto="proyecto"
                    v-for="proyecto in proyectos"
@@ -11,7 +12,7 @@
 <script>
 import ProjectCard from "@/components/cards/ProjectCard";
 export default {
-  props: ["proyectos", "queryType"],
+  props: ["proyectos"],
   components: { ProjectCard }
 };
 </script>
