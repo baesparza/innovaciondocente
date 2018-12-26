@@ -51,10 +51,11 @@ export default {
 .grid {
   padding: 20px;
   display: grid;
-  grid-auto-rows: 150px;
   grid-auto-flow: row dense;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  // grid-auto-rows: 140px;
+  grid-auto-rows: auto;
   @media only screen and (max-width: 1400px) {
     & {
       grid-gap: 15px;
