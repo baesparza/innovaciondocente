@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="card-container"
+  <nuxt-link class="card"
              :to="{name: 'formacion-docente-programa-formacion-id', params: {id: curso.id}}"
              tag="div"
              :style="getBackgroundColor">
@@ -52,16 +52,21 @@ export default {
 
 <style lang="scss">
 .card {
-  &-container {
-    height: 100%;
-    box-shadow: 15px;
-    border-radius: 10px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
+  box-shadow: 15px;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px #0000003e;
+  height: 100%;
+  &:hover {
+    box-shadow: 2px 2px 10px #00000072;
     cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .card-banner {
+      transform: scale(1.1);
+    }
   }
   &-type {
     font-size: 16px;
@@ -73,8 +78,6 @@ export default {
     font-size: 24px !important;
     line-height: 32px;
     font-weight: 400;
-  }
-  &-date {
   }
 }
 

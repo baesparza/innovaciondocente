@@ -67,21 +67,21 @@ export default {
   display: grid;
   grid-auto-rows: 225px;
   grid-auto-flow: row dense;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   @media only screen and (max-width: 1400px) {
-    & {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
     & {
       grid-template-columns: repeat(3, 1fr);
     }
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 992px) {
     & {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    & {
+      grid-gap: 15px;
     }
   }
   @media only screen and (max-width: 576px) {
