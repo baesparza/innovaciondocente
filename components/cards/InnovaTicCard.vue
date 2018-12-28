@@ -8,8 +8,11 @@
              :style="getImage"></div>
       </div>
       <div class="card-content">
-        <h4 class="card-content-title">{{innovaTic.name|slice(0,30)}}</h4>
-        <p class="auto-break card-content-description">{{innovaTic.description |slice(0,100)}}</p>
+        <span class="card-content-title">{{innovaTic.name|slice(0,25)}}</span>
+        <p class="auto-break card-content-description">{{innovaTic.added| dateTimestamp}}</p>
+      </div>
+      <div class="card-play">
+        <i class="fas fa-play-circle"></i>
       </div>
     </div>
     <transition name="fade">
@@ -63,7 +66,6 @@ export default {
     }
   },
   methods: {
-    // TODO: https://codepen.io/AmrSubZero/pen/oLOYrA
     openVideoModal() {
       this.activeModal = true;
       document.documentElement.style.overflow = "hidden";
@@ -85,7 +87,9 @@ export default {
   padding: 10px;
   background-color: #dfdfdf72;
   border-radius: 5px;
+  height: 100%;
   cursor: pointer;
+  align-items: center;
   box-shadow: 2px 2px 10px #0000003e;
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
@@ -93,10 +97,10 @@ export default {
   }
 
   &-img {
-    flex: 0 0 180px;
+    flex: 0 0 130px;
     @media only screen and (max-width: 768px) {
       & {
-        flex: 0 0 130px;
+        flex: 0 0 100px;
       }
     }
     &-container {
@@ -113,20 +117,21 @@ export default {
   }
   &-content {
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
     padding-left: 10px;
     padding-right: 10px;
     &-title {
       max-lines: 1;
       font-weight: 500;
-      font-size: 18px;
     }
     &-description {
       max-lines: 3;
       margin: 0;
+      font-size: 14px;
     }
+  }
+  &-play {
+    color: $color-primary;
   }
 }
 .modal {
