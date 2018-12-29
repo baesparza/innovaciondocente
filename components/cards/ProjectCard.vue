@@ -6,7 +6,7 @@
       <div class="card-header">
         <div v-if="proyecto.img"
              class="card-banner"
-             :style="getBannerPath(proyecto.img)"></div>
+             :style="getBannerPath"></div>
         <div v-else
              class="card-banner"></div>
       </div>
@@ -32,9 +32,9 @@ import AreasChips from "@/components/innovacion-docente/proyectos-innovacion/Are
 export default {
   props: ["proyecto"],
   components: { AreasChips },
-  methods: {
-    getBannerPath(img) {
-      return "background-image: url(" + img + ");";
+  computed: {
+    getBannerPath() {
+      return "background-image: url(" + this.proyecto.img + ");";
     }
   }
 };

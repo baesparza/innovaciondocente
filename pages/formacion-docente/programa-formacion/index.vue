@@ -10,9 +10,10 @@
       </div>
     </header>
     <!--Cursos section-->
-    <Cursos :programFormacionDocente="programFormacionDocente"></Cursos>
+    <Cursos :programFormacionDocente="programFormacionDocente"
+            :description="description"></Cursos>
     <!--Videos section-->
-    <Videos :tips="tips"></Videos>
+    <Videos :description="tips.description"></Videos>
     <!--PDF sections-->
     <section>
       <div class="container">
