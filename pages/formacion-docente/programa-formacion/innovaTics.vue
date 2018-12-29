@@ -21,7 +21,7 @@ import InnovaTicCard from "@/components/cards/InnovaTicCard";
 
 export default {
   async asyncData({ params }) {
-    let title = "Tips de Expertos";
+    let title = "InnovaTics";
     return { title };
   },
   data() {
