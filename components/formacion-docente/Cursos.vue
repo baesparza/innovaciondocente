@@ -1,7 +1,7 @@
 <template>
-  <section class="container">
+  <div>
     <div class="header-row">
-      <span class="header-title">Últimos Cursos</span>
+      <span class="header-title">{{getTitle}}</span>
       <nuxt-link class="header-more"
                  tag='span'
                  :to="{name: 'formacion-docente-programa-formacion-cursos'}">
@@ -11,6 +11,7 @@
          v-if="description">{{description}}</p>
     </div>
     <div class="grid"
+         :class="{'index-view' :isIndex ,'normal-view' :!isIndex }"
          v-if="cursos && cursos.length > 0">
       <CursoCard :curso="curso"
                  v-for="curso in cursos"
@@ -18,7 +19,7 @@
                  class="card" />
     </div>
     <div v-else>
-      <p>No hay Cursos para mostrar. Visita nuestro Portafolio de Cursos</p>
+      <span>{{getErrorMessage}} Visita nuestro Portafolio de Cursos</span>
     </div>
     <!-- TODO: move to principal page 
       <a class="btn btn-outline-primary btn-sm btn-large"
@@ -28,7 +29,7 @@
        :href="programFormacionDocente">
       <i class="fas fa-calendar-alt"></i> Programa de Formación Docente
     </a> -->
-  </section>
+  </div>
 </template>
 
 <script>
@@ -36,34 +37,49 @@ import { AFirestore } from "~/plugins/firebase.js";
 
 import CursoCard from "@/components/cards/CursoCard";
 export default {
-  props: ["description"],
+  props: ["description", "isIndex"],
   components: { CursoCard },
   data() {
     return { cursos: null };
   },
   async mounted() {
-    // const temp = new Date();
-    // const startDate = new Date(temp.getFullYear(), temp.getMonth());
-    const cursosSnap = await AFirestore.collection(
-      "formacion-docente/programa-formacion/cursos"
-    )
-      // .where("date", ">=", startDate)
-      .orderBy("date", "desc")
-      .limit(4)
-      .get();
+    let cursosSnap = null;
+      if (this.isIndex) {
+      const temp = new Date();
+      const startDate = new Date(temp.getFullYear(), temp.getMonth());
+      cursosSnap = await AFirestore.collection(
+        "formacion-docente/programa-formacion/cursos"
+      )
+        .where("date", ">=", startDate)
+        .orderBy("date", "desc")
+        .get();
+    } else {
+      cursosSnap = await AFirestore.collection(
+        "formacion-docente/programa-formacion/cursos"
+      )
+        .orderBy("date", "desc")
+        .limit(4)
+        .get();
+    }
     this.cursos = cursosSnap.docs.map(doc =>
       Object.assign({ id: doc.id }, doc.data())
     );
+  },
+  computed: {
+    getTitle() {
+      return this.isIndex ? "Próximos Cursos" : "Últimos Cursos";
+    },
+    getErrorMessage() {
+      return this.isIndex
+        ? "No hay próximos cursos."
+        : "No se pudieron cargar los últimos cursos.";
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "assets/variables";
-
-section {
-  padding-bottom: 0;
-}
 
 .header {
   &-row {
@@ -95,8 +111,30 @@ section {
   display: grid;
   grid-auto-rows: 225px;
   grid-auto-flow: row dense;
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+}
+
+.index-view {
+  grid-template-columns: repeat(3, 1fr);
+  @media only screen and (max-width: 1400px) {
+    & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    & {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    & {
+      grid-auto-rows: 200px;
+    }
+  }
+}
+
+.normal-view {
+  grid-template-columns: repeat(4, 1fr);
   @media only screen and (max-width: 1400px) {
     & {
       grid-template-columns: repeat(3, 1fr);
@@ -109,6 +147,7 @@ section {
   }
   @media only screen and (max-width: 768px) {
     & {
+      grid-auto-rows: 200px;
       grid-template-columns: repeat(1, 1fr);
     }
   }

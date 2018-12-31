@@ -18,7 +18,7 @@
 export default {
   props: ["curso"],
   computed: {
-    getCursoType: function() {
+    getCursoType() {
       let txt = this.curso.img;
       if (txt.includes("gestion")) return "Gestión académica";
       if (txt.includes("gestion-proyectos")) return "Gestión de proyectos";
@@ -48,9 +48,7 @@ export default {
   }
 };
 </script>
-
-
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
   box-shadow: 15px;
   border-radius: 10px;
@@ -69,15 +67,19 @@ export default {
     }
   }
   &-type {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
   }
   &-title {
     display: block;
-    font-size: 24px !important;
+    font-size: 20px !important;
     line-height: 32px;
     font-weight: 400;
+  }
+  &-date {
+    display: block;
+    font-size: 16px !important;
   }
 }
 

@@ -9,14 +9,21 @@
         <p class="container auto-break">{{description}}</p>
       </div>
     </header>
-    <!--Cursos section-->
-    <Cursos :programFormacionDocente="programFormacionDocente"
-            :description="description"></Cursos>
-    <!--Videos section-->
-    <Videos :description="tips.description"></Videos>
-    <!--PDF sections-->
-    <section>
-      <div class="container">
+    <div class="container">
+
+      <!--Cursos section-->
+      <section>
+        <Cursos :programFormacionDocente="programFormacionDocente"
+                :description="description"></Cursos>
+      </section>
+
+      <!--Videos section-->
+      <section>
+        <Videos :description="tips.description"></Videos>
+      </section>
+
+      <!--PDF sections-->
+      <section>
         <div class="row">
           <div class="col-md-6"
                v-if="validateFormacion">
@@ -24,7 +31,8 @@
               Válida tu formación Docente - Pedagógica
             </h3>
             <p>
-              Intructivo para validar tus cursos del Programa de Formación Docente - Pedagógica en
+              Intructivo para validar tus cursos del Programa de Formación Docente - Pedagógica
+              en
               el Sistema de Información
               Académica Científica (SIAC)
             </p>
@@ -49,8 +57,8 @@
             </nuxt-link>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -93,6 +101,11 @@ header {
   height: 100vh;
   width: 100%;
   display: flex;
+}
+
+section {
+  padding-top: 25px;
+  padding-bottom: 20px;
 }
 
 .header-content {

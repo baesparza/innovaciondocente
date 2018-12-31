@@ -111,7 +111,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "assets/header";
 @import "assets/variables";
 @import "assets/alert";
