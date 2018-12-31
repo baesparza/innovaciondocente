@@ -70,7 +70,6 @@ export default {
   }
   @media only screen and (max-width: 768px) {
     & {
-      padding: 10px;
       grid-template-columns: repeat(1, 1fr);
     }
   }
