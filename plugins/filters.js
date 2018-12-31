@@ -11,9 +11,9 @@ Vue.filter('dateTimestamp', (val) => {
     .toLocaleDateString(
       'es-ES', // lang
       {
-        weekday: 'long',
+        // weekday: 'short',
         year: 'numeric',
-        month: 'long',
+        month: 'short',
         day: 'numeric'
       }
     );

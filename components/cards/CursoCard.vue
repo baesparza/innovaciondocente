@@ -18,7 +18,7 @@
 export default {
   props: ["curso"],
   computed: {
-    getCursoType: function() {
+    getCursoType() {
       let txt = this.curso.img;
       if (txt.includes("gestion")) return "Gestión académica";
       if (txt.includes("gestion-proyectos")) return "Gestión de proyectos";
