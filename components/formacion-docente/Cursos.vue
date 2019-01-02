@@ -1,18 +1,16 @@
 <template>
   <div>
-    <div class="header-row">
-      <span class="header-title">{{getTitle}}</span>
-      <nuxt-link class="header-more"
-                 tag='span'
-                 :to="{name: 'formacion-docente-programa-formacion-cursos'}">
-        Portafolio de Cursos <i class="fas fa-chevron-right"></i>
-      </nuxt-link>
-      <p class="auto-break header-description"
-         v-if="description">{{description}}</p>
+    <SectionHeader :title="getTitle"
+                   goto='formacion-docente-programa-formacion-cursos'
+                   name='Portafolio de Cursos' />
+    <p class="auto-break header-description"
+       v-if="description">{{description}}</p>
+    <div v-if="loading">
+      <span>Cargando...</span>
     </div>
     <div class="grid"
          :class="{'index-view' :isIndex ,'normal-view' :!isIndex }"
-         v-if="cursos && cursos.length > 0">
+         v-else-if="cursos && cursos.length > 0">
       <CursoCard :curso="curso"
                  v-for="curso in cursos"
                  :key="curso.id"
@@ -34,36 +32,42 @@
 
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
-
 import CursoCard from "@/components/cards/CursoCard";
+import SectionHeader from "@/components/sections/SectionHeader";
+
 export default {
   props: ["description", "isIndex"],
-  components: { CursoCard },
+  components: { CursoCard, SectionHeader },
   data() {
-    return { cursos: null };
+    return { cursos: null, loading: true };
   },
   async mounted() {
-    let cursosSnap = null;
+    try {
+      let cursosSnap = null;
       if (this.isIndex) {
-      const temp = new Date();
-      const startDate = new Date(temp.getFullYear(), temp.getMonth());
-      cursosSnap = await AFirestore.collection(
-        "formacion-docente/programa-formacion/cursos"
-      )
-        .where("date", ">=", startDate)
-        .orderBy("date", "desc")
-        .get();
-    } else {
-      cursosSnap = await AFirestore.collection(
-        "formacion-docente/programa-formacion/cursos"
-      )
-        .orderBy("date", "desc")
-        .limit(4)
-        .get();
+        const temp = new Date();
+        const startDate = new Date(temp.getFullYear(), temp.getMonth());
+        cursosSnap = await AFirestore.collection(
+          "formacion-docente/programa-formacion/cursos"
+        )
+          .where("date", ">=", startDate)
+          .orderBy("date", "desc")
+          .get();
+      } else {
+        cursosSnap = await AFirestore.collection(
+          "formacion-docente/programa-formacion/cursos"
+        )
+          .orderBy("date", "desc")
+          .limit(4)
+          .get();
+      }
+      this.cursos = cursosSnap.docs.map(doc =>
+        Object.assign({ id: doc.id }, doc.data())
+      );
+    } catch (error) {
+      console.error(error);
     }
-    this.cursos = cursosSnap.docs.map(doc =>
-      Object.assign({ id: doc.id }, doc.data())
-    );
+    this.loading = false;
   },
   computed: {
     getTitle() {
@@ -79,34 +83,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "assets/variables";
-
-.header {
-  &-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 20px;
-    align-items: baseline;
-  }
-  &-title {
-    font-size: 30px;
-    font-weight: 400;
-    margin-right: 15px;
-  }
-  &-more {
-    cursor: pointer;
-    color: $color-primary;
-    font-size: 16px;
-  }
-  &-description {
-    padding-top: 10px;
-    font-size: 16px;
-  }
-}
-
 .grid {
   display: grid;
   grid-auto-rows: 225px;

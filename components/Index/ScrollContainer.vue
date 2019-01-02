@@ -8,7 +8,7 @@
             <ul>
               <li v-for="(section,id) in sections"
                   :key="id">
-                <a :href="'#'.id"
+                <a :href="'#'+id"
                    :class="{'active': section.active}">{{section.name}} <i class="fas fa-angle-right"></i></a>
               </li>
             </ul>
@@ -20,32 +20,13 @@
       <div class="col-md-8">
 
         <section id="cursos">
-          <Cursos :isIndex="true"></Cursos>
+          <Cursos :isIndex="true" />
         </section>
         <section id="innovaTips">
-          <Videos :isIndex="true"></Videos>
+          <Videos :isIndex="true" />
         </section>
         <section id="noticias">
-          <h3 class="section-name">
-            Ultimas Noticias
-          </h3>
-          <div class="card-container">
-
-            <div class="card">
-              <h4 class="card-title">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut aliquid possimus.
-              </h4>
-            </div>
-            <div class="card">
-              ashfsfasd
-            </div>
-            <div class="card">
-              ashfsfasd
-            </div>
-            <div class="card">
-              ashfsfasd
-            </div>
-          </div>
+          <NoticiaSection :isIndex="true" />
         </section>
       </div>
     </div>
@@ -55,9 +36,10 @@
 <script>
 import Cursos from "@/components/formacion-docente/Cursos";
 import Videos from "@/components/formacion-docente/Videos";
+import NoticiaSection from "~/components/sections/NoticiaSection";
 
 export default {
-  components: { Cursos, Videos },
+  components: { Cursos, Videos, NoticiaSection },
   data() {
     return {
       sections: {
