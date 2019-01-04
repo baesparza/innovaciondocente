@@ -19,7 +19,7 @@
 
       <!--Videos section-->
       <section>
-        <VideosSection :description="tips.description"/>
+        <InnovaTicsSection :description="tips.description"/>
       </section>
 
       <!--PDF sections-->

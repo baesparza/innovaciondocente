@@ -61,18 +61,19 @@ export default {
   display: grid;
   grid-auto-rows: auto;
   grid-auto-flow: row dense;
-  grid-gap: 10px;
+  grid-gap: 20px;
 }
 .index-view {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   @media only screen and (max-width: 1400px) {
     & {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   @media only screen and (max-width: 992px) {
     & {
-      grid-template-columns: repeat(2, 1fr);
+      // grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
     }
   }
   @media only screen and (max-width: 768px) {

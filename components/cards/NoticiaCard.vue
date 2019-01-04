@@ -5,8 +5,8 @@
     <div class="card-header">
       <div class="card-header-img"
            :style="getBannerPath"></div>
-      <div class="card-header-overlay">
-        Noticia </div>
+      <!-- <div class="card-header-overlay">
+        Noticia </div> -->
     </div>
     <div class="card-body">
       <span class="card-body-title">
@@ -79,6 +79,7 @@ export default {
       bottom: 0;
       background: linear-gradient(
         to top,
+        rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0),

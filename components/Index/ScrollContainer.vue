@@ -1,12 +1,13 @@
 <template>
   <div class="scroll-container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="scroll-bar">
           <div class="scroll-bar-container">
-            <h2 class="scroll-bar-container-title">ASCENDERE IN</h2>
+            <h2 class="scroll-bar-container-title">ASCENDERE</h2>
             <ul>
-              <li v-for="(section,id) in sections"
+              <li class="scroll-bar-container-tile"
+                  v-for="(section,id) in sections"
                   :key="id">
                 <a :href="'#'+id"
                    :class="{'active': section.active}">{{section.name}} <i class="fas fa-angle-right"></i></a>
@@ -17,20 +18,21 @@
       </div>
 
       <!-- data -->
-      <div class="col-md-8">
-
-        <section class="container"
-                 id="cursos">
-          <CursosSection :isIndex="true" />
-        </section>
-        <section class="container"
-                 id="innovaTics">
-          <InnovaTicsSection :isIndex="true" />
-        </section>
-        <section class="container"
-                 id="noticias">
-          <NoticiaSection :isIndex="true" />
-        </section>
+      <div class="col-md-9 ">
+        <div class="content">
+          <section class="container"
+                   id="cursos">
+            <CursosSection :isIndex="true" />
+          </section>
+          <section class="container"
+                   id="innovaTics">
+            <InnovaTicsSection :isIndex="true" />
+          </section>
+          <section class="container"
+                   id="noticias">
+            <NoticiaSection :isIndex="true" />
+          </section>
+        </div>
       </div>
     </div>
   </div>
@@ -65,7 +67,7 @@ export default {
     handleScroll(event) {
       const spyNot = document.querySelectorAll("#noticias");
       const spyCur = document.querySelectorAll("#cursos");
-      const spyTip = document.querySelectorAll("#innovaTips");
+      const spyTip = document.querySelectorAll("#innovaTics");
       spyNot.forEach(el => {
         this.sections.noticias.active = this.validator(el);
       });
@@ -73,7 +75,7 @@ export default {
         this.sections.cursos.active = this.validator(el);
       });
       spyTip.forEach(el => {
-        this.sections.innovaTips.active = this.validator(el);
+        this.sections.innovaTics.active = this.validator(el);
       });
     },
     validator(el) {
@@ -105,25 +107,24 @@ div[class^="col-md-"] {
   padding: 0;
 }
 .scroll-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
   height: 100%;
   color: $color-text-primary;
   z-index: 100;
-  background-image: linear-gradient(
-    143deg,
-    #2980b9 0,
-    #2471a3 8%,
-    #1f618d 18%,
-    #044a80 100%
-  );
+  background-image: linear-gradient(to bottom, #1a2377, #1a2377, #ff0266);
   &-container {
-    padding: 80px 40px 60px 20%;
+    padding: 80px 0 60px 0;
     position: sticky;
     top: 0;
     left: 0;
     &-title {
       padding-bottom: 20px;
       font-size: 1.7em;
+      font-weight: 500;
+      letter-spacing: 5px;
     }
   }
   ul {
@@ -133,20 +134,44 @@ div[class^="col-md-"] {
   }
   li {
     cursor: pointer;
+    padding: 15px 0 10px 0;
   }
   a {
     font-size: 1.5em;
     color: $color-text-primary;
+    position: relative;
+    &::before {
+      background: $color-secondary none repeat scroll 0 0;
+      bottom: -2px;
+      height: 3px;
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 0%;
+      transition: 0.5s;
+    }
   }
   .active {
-    color: $color-secondary;
-    font-weight: 700;
+    color: $color-text-primary;
+    font-weight: 600;
     text-decoration: none;
-    cursor: default;
+    &::before {
+      width: 100%;
+    }
   }
 }
 section {
   padding-top: 25px;
   padding-bottom: 15px;
+  // height: 80vh;
+}
+
+.content {
+  padding: 80px 20px;
+  @media only screen and (max-width: 992px) {
+    & {
+      padding: 20px 10px;
+    }
+  }
 }
 </style>
