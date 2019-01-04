@@ -21,11 +21,11 @@
 
         <section class="container"
                  id="cursos">
-          <Cursos :isIndex="true" />
+          <CursosSection :isIndex="true" />
         </section>
         <section class="container"
-                 id="innovaTips">
-          <Videos :isIndex="true" />
+                 id="innovaTics">
+          <InnovaTicsSection :isIndex="true" />
         </section>
         <section class="container"
                  id="noticias">
@@ -37,12 +37,12 @@
 </template>
 
 <script>
-import Cursos from "@/components/formacion-docente/Cursos";
-import Videos from "@/components/formacion-docente/Videos";
+import CursosSection from "@/components/sections/CursosSection";
+import InnovaTicsSection from "@/components/sections/InnovaTicsSection";
 import NoticiaSection from "~/components/sections/NoticiaSection";
 
 export default {
-  components: { Cursos, Videos, NoticiaSection },
+  components: { CursosSection, InnovaTicsSection, NoticiaSection },
   data() {
     return {
       sections: {
@@ -50,8 +50,8 @@ export default {
           name: "Cursos",
           active: false
         },
-        innovaTips: {
-          name: "InnovaTips",
+        innovaTics: {
+          name: "InnovaTics",
           active: false
         },
         noticias: {
