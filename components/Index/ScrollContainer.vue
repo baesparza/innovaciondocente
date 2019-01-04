@@ -19,13 +19,16 @@
       <!-- data -->
       <div class="col-md-8">
 
-        <section id="cursos">
+        <section class="container"
+                 id="cursos">
           <Cursos :isIndex="true" />
         </section>
-        <section id="innovaTips">
+        <section class="container"
+                 id="innovaTips">
           <Videos :isIndex="true" />
         </section>
-        <section id="noticias">
+        <section class="container"
+                 id="noticias">
           <NoticiaSection :isIndex="true" />
         </section>
       </div>
@@ -143,6 +146,7 @@ div[class^="col-md-"] {
   }
 }
 section {
-  padding: 25px 20px 20px 20px;
+  padding-top: 25px;
+  padding-bottom: 15px;
 }
 </style>

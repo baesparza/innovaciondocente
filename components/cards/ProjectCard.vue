@@ -49,9 +49,9 @@ export default {
     border-radius: 3px;
     box-shadow: 2px 2px 10px #0000003e;
     height: 100%;
+    cursor: pointer;
     &:hover {
       box-shadow: 2px 2px 10px #00000072;
-      cursor: pointer;
       .card-banner {
         transform: scale(1.1);
       }

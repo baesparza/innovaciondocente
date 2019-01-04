@@ -59,7 +59,7 @@ export default {
  <style lang="scss" scoped>
 .grid {
   display: grid;
-  grid-auto-rows: 250px;
+  grid-auto-rows: auto;
   grid-auto-flow: row dense;
   grid-gap: 10px;
 }
@@ -78,7 +78,6 @@ export default {
   @media only screen and (max-width: 768px) {
     & {
       grid-template-columns: repeat(1, 1fr);
-      grid-auto-rows: 200px;
     }
   }
 }
@@ -97,7 +96,6 @@ export default {
   }
   @media only screen and (max-width: 768px) {
     & {
-      grid-auto-rows: 200px;
       grid-template-columns: repeat(2, 1fr);
     }
   }
