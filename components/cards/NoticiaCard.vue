@@ -4,10 +4,9 @@
              tag="div">
     <div class="card-header">
       <div class="card-header-img"
-           :style="getBannerPath">
-        <div class="card-header-img-overlay">
-          Noticia </div>
-      </div>
+           :style="getBannerPath"></div>
+      <div class="card-header-overlay">
+        Noticia </div>
     </div>
     <div class="card-body">
       <span class="card-body-title">
@@ -52,37 +51,44 @@ export default {
     }
   }
   &-header {
+    width: 100%;
     overflow: hidden;
+    position: relative;
+    padding-bottom: 56.2%;
+    background-color: $color-primary;
+
     &-img {
-      position: relative;
+      position: absolute;
       width: 100%;
-      padding-top: 56%;
-      border-radius: 5px 5px;
-      overflow: hidden;
+      height: 100%;
+      border-radius: 5px 5px 0 0;
+
+      // img
       background-color: $color-primary;
       background-image: url("~/static/default.png");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       transition: all 0.5s;
-      &-overlay {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        bottom: 0;
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 0),
-          rgba(0, 0, 0, 0.664)
-        );
+    }
+    &-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.664)
+      );
+      z-index: 10000;
 
-        // position text
-        padding: 13px 20px;
-        color: white;
-      }
+      // position text
+      padding: 13px 20px;
+      color: white;
     }
   }
   &-body {
