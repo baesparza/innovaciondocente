@@ -44,7 +44,6 @@
 import { AFirestore } from "~/plugins/firebase.js";
 
 import Navbar from "@/components/Navbar";
-import Cards from "@/components/Index/Cards";
 import CafeCientifico from "@/components/Index/CafeCientifico";
 import LiiD from "@/components/Index/Liid";
 import QuienesSomos from "@/components/Index/QuienesSomos";
@@ -72,7 +71,6 @@ export default {
   },
   components: {
     Navbar,
-    Cards,
     LiiD,
     QuienesSomos,
     CafeCientifico,
