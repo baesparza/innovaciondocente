@@ -23,47 +23,39 @@
       </section>
 
       <!--PDF sections-->
-      <section>
-        <div class="row">
-          <div class="col-md-6"
-               v-if="validateFormacion">
-            <h3>
-              Válida tu formación Docente - Pedagógica
-            </h3>
-            <p>
-              Intructivo para validar tus cursos del Programa de Formación Docente - Pedagógica
-              en
-              el Sistema de Información
-              Académica Científica (SIAC)
-            </p>
-            <a class="btn btn-outline-primary btn-large"
-               target="_blank"
-               rel="noopener"
-               :href="validateFormacion">
-              <i class="fas fa-file-pdf"></i>
-              Descargar intructivo</a>
-          </div>
-          <div class="col-md-6">
-            <h3>
-              Cursos Específicos
-            </h3>
-            <p>
-              Pasos a seguir para presentar solicitudes en la realización de Cursos Específicos y
-              Emisión de certificados.
-            </p>
-            <nuxt-link :to="{name: 'formacion-docente-programa-formacion-cursos-especificos'}"
-                       class="btn btn-outline-primary btn-large">
-              Ver Más...
-            </nuxt-link>
-          </div>
-        </div>
-      </section>
+      <div class="row">
+        <section class="col-md-6"
+                 v-if="validateFormacion">
+          <SectionHeader title="Válida tu formación Docente - Pedagógica" />
+          <p>
+            Intructivo para validar tus cursos del Programa de Formación Docente - Pedagógica en
+            el Sistema de Información Académica Científica (SIAC).
+          </p>
+          <a class="btn btn-outline-primary btn-large"
+             target="_blank"
+             rel="noopener"
+             :href="validateFormacion">
+            <i class="fas fa-file-pdf"></i>
+            Descargar intructivo</a>
+        </section>
+        <section class="col-md-6">
+          <SectionHeader title="Cursos Específicos"
+                         goto='formacion-docente-programa-formacion-cursos-especificos'
+                         name='Ver Más' />
+          <p>
+            Pasos a seguir para presentar solicitudes en la realización de Cursos Específicos y
+            Emisión de certificados.
+          </p>
+        </section>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
+import SectionHeader from "@/components/sections/SectionHeader";
+
 import Cursos from "@/components/formacion-docente/Cursos";
 import Videos from "@/components/formacion-docente/Videos";
 export default {
@@ -76,10 +68,7 @@ export default {
     if (programaFormacionSnap.exists)
       return { ...programaFormacionSnap.data() };
   },
-  components: {
-    Cursos,
-    Videos
-  },
+  components: { Cursos, Videos, SectionHeader },
   head() {
     return {
       title: this.title,

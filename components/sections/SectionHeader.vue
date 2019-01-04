@@ -1,7 +1,8 @@
 <template>
   <div class="header-row">
     <span class="header-title">{{title}}</span>
-    <nuxt-link class="header-more"
+    <nuxt-link v-if="goto && name"
+               class="header-more"
                tag='span'
                :to="{name: goto}">
       {{name}} <i class="fas fa-chevron-right"></i>
