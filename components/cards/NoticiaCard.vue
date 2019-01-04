@@ -84,7 +84,6 @@ export default {
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0.664)
       );
-      z-index: 10000;
 
       // position text
       padding: 13px 20px;
