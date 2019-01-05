@@ -92,7 +92,12 @@ export default {
     }
   }
   &-body {
-    padding: 13px 20px;
+    padding: 15px;
+    @media only screen and (max-width: 768px) {
+      & {
+        padding: 10px;
+      }
+    }
     &-title {
       font-size: 22px;
       font-weight: 400;

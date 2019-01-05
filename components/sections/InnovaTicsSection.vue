@@ -80,10 +80,6 @@ export default {
       grid-template-columns: repeat(1, 1fr);
     }
   }
-  @media only screen and (max-width: 768px) {
-    & {
-    }
-  }
 }
 
 .normal-view {

@@ -114,7 +114,7 @@ div[class^="col-md-"] {
   height: 100%;
   color: $color-text-primary;
   z-index: 100;
-  background-image: linear-gradient(to bottom, #1a2377, #1a2377, #ff0266);
+  background-image: linear-gradient(to bottom, #0d426b, #0d426b, #ff0266);
   &-container {
     padding: 80px 0 60px 0;
     position: sticky;
@@ -157,6 +157,11 @@ div[class^="col-md-"] {
     text-decoration: none;
     &::before {
       width: 100%;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    & {
+      display: none;
     }
   }
 }
