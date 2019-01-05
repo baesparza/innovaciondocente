@@ -1,7 +1,7 @@
 <template>
   <div class="scroll-container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-lg-3">
         <div class="scroll-bar">
           <div class="scroll-bar-container">
             <h2 class="scroll-bar-container-title">ASCENDERE</h2>
@@ -18,16 +18,18 @@
       </div>
 
       <!-- data -->
-      <div class="col-md-9 ">
+      <div class="col-lg-9 ">
         <div class="content">
           <section class="container"
                    id="cursos">
             <CursosSection :isIndex="true" />
           </section>
+          <div class="spacer"></div>
           <section class="container"
                    id="innovaTics">
             <InnovaTicsSection :isIndex="true" />
           </section>
+          <div class="spacer"></div>
           <section class="container"
                    id="noticias">
             <NoticiaSection :isIndex="true" />
@@ -103,7 +105,7 @@ export default {
   margin-right: auto;
   margin-left: auto;
 }
-div[class^="col-md-"] {
+div[class^="col-"] {
   padding: 0;
 }
 .scroll-bar {
@@ -116,7 +118,7 @@ div[class^="col-md-"] {
   z-index: 100;
   background-image: linear-gradient(to bottom, #0d426b, #0d426b, #ff0266);
   &-container {
-    padding: 80px 0 60px 0;
+    padding: 80px 0;
     position: sticky;
     top: 0;
     left: 0;
@@ -159,24 +161,29 @@ div[class^="col-md-"] {
       width: 100%;
     }
   }
-  @media only screen and (max-width: 768px) {
-    & {
-      display: none;
-    }
-  }
 }
 section {
-  padding-top: 25px;
-  padding-bottom: 15px;
+  padding: 0;
   // height: 80vh;
+}
+
+.spacer {
+  height: 80px;
 }
 
 .content {
   padding: 80px 20px;
-  @media only screen and (max-width: 992px) {
-    & {
-      padding: 20px 10px;
-    }
+}
+
+@media only screen and (max-width: 992px) {
+  .content {
+    padding: 15px;
+  }
+  .spacer {
+    height: 20px;
+  }
+  .scroll-bar{
+    display: none;
   }
 }
 </style>
