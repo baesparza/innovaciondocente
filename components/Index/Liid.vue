@@ -21,7 +21,7 @@
             </div> -->
             <p class="auto-break on-secondary">{{project.description}}</p>
             <nuxt-link class="btn btn-large btn-primary"
-                       :to="{name: 'innovacion-docente-proyectos-innovacion', query:{type:'proyecto-actual',view:'canvas'}}">Atrevete</nuxt-link>
+                       :to="{name: 'innovacion-docente-proyectos-innovacion', query:{type:'proyecto-actual'}}">Atrevete</nuxt-link>
           </div>
         </div>
       </div>

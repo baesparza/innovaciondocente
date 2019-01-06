@@ -1,6 +1,6 @@
 <template>
-  <div class="stack">
 
+  <div class="stack">
     <canvas ref="canvas"
             id="projectCanvas"
             class="stack-canvas">
@@ -25,11 +25,12 @@
       </div>
     </transition>
   </div>
+
 </template>
 
 <script>
 export default {
-  props: ["proyectos", "queryType"],
+  props: ["proyectos"],
   data() {
     return {
       canvas: null,

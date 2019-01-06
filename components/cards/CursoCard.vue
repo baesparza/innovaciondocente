@@ -59,6 +59,8 @@ export default {
   cursor: pointer;
   box-shadow: 2px 2px 10px #0000003e;
   height: 100%;
+  transition: all 0.5s;
+
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
     cursor: pointer;

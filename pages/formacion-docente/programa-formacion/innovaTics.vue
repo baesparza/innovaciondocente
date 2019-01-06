@@ -51,7 +51,6 @@ export default {
 .grid {
   padding: 20px;
   display: grid;
-  grid-auto-flow: row dense;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   grid-auto-rows: auto;

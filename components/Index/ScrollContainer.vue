@@ -32,7 +32,7 @@
           <div class="spacer"></div>
           <section class="container"
                    id="noticias">
-            <NoticiaSection :isIndex="true" />
+            <NoticiasSection :isIndex="true" />
           </section>
         </div>
       </div>
@@ -43,10 +43,10 @@
 <script>
 import CursosSection from "@/components/sections/CursosSection";
 import InnovaTicsSection from "@/components/sections/InnovaTicsSection";
-import NoticiaSection from "~/components/sections/NoticiaSection";
+import NoticiasSection from "~/components/sections/NoticiasSection";
 
 export default {
-  components: { CursosSection, InnovaTicsSection, NoticiaSection },
+  components: { CursosSection, InnovaTicsSection, NoticiasSection },
   data() {
     return {
       sections: {
@@ -172,7 +172,7 @@ section {
 }
 
 .content {
-  padding: 80px 20px;
+  padding: 80px 80px;
 }
 
 @media only screen and (max-width: 992px) {

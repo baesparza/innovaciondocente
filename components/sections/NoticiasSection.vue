@@ -60,7 +60,6 @@ export default {
 .grid {
   display: grid;
   grid-auto-rows: auto;
-  grid-auto-flow: row dense;
   grid-gap: 20px;
 }
 .index-view {

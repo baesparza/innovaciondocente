@@ -44,10 +44,12 @@ export default {
   align-items: center;
   box-shadow: 2px 2px 10px #0000003e;
   overflow: hidden;
+    transition: all 0.5s;
+
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
     .card-header-img {
-      transform: scale(1.1);
+      transform: scale(1.04);
     }
   }
   &-header {

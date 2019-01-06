@@ -67,7 +67,6 @@ export default {
 
 .grid {
   display: grid;
-  grid-auto-flow: row dense;
   grid-gap: 20px;
   grid-auto-rows: auto;
 }

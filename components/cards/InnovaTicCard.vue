@@ -1,4 +1,4 @@
-x<template>
+<template>
   <div>
 
     <div class="card"
@@ -100,6 +100,7 @@ export default {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 2px 2px 10px #0000003e;
+  transition: all 0.5s;
 
   // position elements
   display: grid;
@@ -116,7 +117,6 @@ export default {
 
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
-    cursor: pointer;
   }
 
   &-img {
@@ -136,7 +136,7 @@ export default {
     background-repeat: no-repeat;
     overflow: hidden;
   }
-  
+
   &-content {
     overflow: hidden;
     &-title {
