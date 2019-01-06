@@ -1,7 +1,7 @@
 <template>
   <section v-bind:class="[{'blue':blue}]">
     <div class="container">
-      <h2>{{title}}</h2>
+      <SectionHeader :title="title" />
       <p class="auto-break">{{description}}</p>
       <div class="form-group">
         <label for="email">Correo Electrónico</label>
@@ -26,8 +26,11 @@
 
 <script>
 import axios from "axios";
+import SectionHeader from "@/components/sections/SectionHeader";
+
 export default {
   props: ["title", "description", "blue"],
+  components: { SectionHeader },
   data() {
     return {
       forma: {

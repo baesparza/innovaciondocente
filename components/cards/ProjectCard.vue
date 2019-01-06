@@ -46,7 +46,7 @@ export default {
 .aspect-ratio {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
+  padding-top: 40%;
   overflow: hidden;
   border-radius: 5px 5px 0 0;
 }
@@ -66,7 +66,7 @@ export default {
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
     .card-banner {
-      transform: scale(1);
+      transform: scale(1.04);
     }
   }
 
@@ -85,7 +85,6 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     transition: all 0.5s;
-    transform: scale(1.1);
   }
   &-details {
     max-height: 100%;

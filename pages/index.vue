@@ -35,8 +35,8 @@
     <LiiD :liid='indexData.liid'
           :project='indexData.project' />
     <QuienesSomos :quienesSomos="indexData['quienes-somos']" />
-    <Suscripcion title="Suscríbete"
-                 description="Obtenga las últimas noticias de Innovación UTPL entregadas en su bandeja de entrada." />
+    <SuscripcionSection title="Suscríbete"
+                        description="Obtenga las últimas noticias de Innovación UTPL entregadas en su bandeja de entrada." />
     <FooterIndex />
   </div>
 </template>
@@ -49,7 +49,7 @@ import LiiD from "@/components/Index/Liid";
 import QuienesSomos from "@/components/Index/QuienesSomos";
 import FooterIndex from "@/components/Index/FooterIndex";
 import ScrollContainer from "@/components/Index/ScrollContainer";
-import Suscripcion from "@/components/Suscripcion";
+import SuscripcionSection from "@/components/sections/SuscripcionSection";
 
 export default {
   layout: "empty",
@@ -74,7 +74,7 @@ export default {
     LiiD,
     QuienesSomos,
     CafeCientifico,
-    Suscripcion,
+    SuscripcionSection,
     ScrollContainer,
     FooterIndex
   },

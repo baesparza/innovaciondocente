@@ -78,14 +78,14 @@
       </div>
     </section>
     <!--Susciption section-->
-    <Suscripcion title="Suscríbete a nuestro Café Científico"
-                 :description="description"
-                 blue="true" />
+    <SuscripcionSection title="Suscríbete a nuestro Café Científico"
+                        :description="description"
+                        blue="true" />
   </div>
 </template>
 
 <script>
-import Suscripcion from "@/components/Suscripcion";
+import SuscripcionSection from "@/components/sections/SuscripcionSection";
 import { AFirestore } from "~/plugins/firebase.js";
 
 export default {
@@ -118,9 +118,7 @@ export default {
       return this.encuentros[0];
     }
   },
-  components: {
-    Suscripcion
-  },
+  components: { SuscripcionSection },
   head() {
     return {
       title: "Café Científico",

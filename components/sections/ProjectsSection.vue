@@ -97,7 +97,7 @@ export default {
 .grid {
   display: grid;
   grid-gap: 40px;
-  grid-auto-rows: 1fr;
+  grid-auto-rows: auto;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
 
   @media only screen and (max-width: 1400px) {

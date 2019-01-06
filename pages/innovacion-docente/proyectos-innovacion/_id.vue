@@ -12,7 +12,7 @@
       <div v-if="proyecto.img">
         <div class="banner">
           <div class="banner-img"
-               :style="getBannerPath(proyecto.img)"></div>
+               :style="getBannerPath"></div>
         </div>
         <div class="spacer"></div>
       </div>
@@ -21,7 +21,9 @@
           <!-- proyect type -->
           <h2>{{getProyectoType}}</h2>
           <!-- modality -->
-          <h3><b>Modalidad: </b> {{proyecto.modality}}</h3>
+          <h3>
+            Modalidad {{proyecto.modality}}
+          </h3>
           <div class="spacer"></div>
           <!-- areas -->
           <span v-if="proyecto.area.administrativa ||proyecto.area.biologica ||proyecto.area.sociohumanistica || proyecto.area.tecnica"
@@ -215,7 +217,7 @@ h2 {
 }
 h3 {
   font-size: 23px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .data-field {
   margin-left: 15px;
