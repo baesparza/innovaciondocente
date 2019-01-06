@@ -97,22 +97,19 @@ export default {
 .grid {
   display: grid;
   grid-gap: 40px;
-   grid-auto-rows: 1fr;
-  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+
   @media only screen and (max-width: 1400px) {
     & {
       grid-gap: 20px;
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-    & {
-      grid-gap: 10px;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     }
   }
   @media only screen and (max-width: 768px) {
     & {
+      grid-gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     }
   }
 }

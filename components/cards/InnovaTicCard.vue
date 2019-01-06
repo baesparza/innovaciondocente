@@ -95,7 +95,7 @@ export default {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  padding: 15px;
+  padding: 10px;
   background-color: #dfdfdf72;
   border-radius: 5px;
   cursor: pointer;
@@ -107,13 +107,6 @@ export default {
   grid-template-columns: 3fr 6fr auto;
   grid-gap: 15px;
   align-items: center;
-
-  @media only screen and (max-width: 768px) {
-    & {
-      padding: 10px;
-      grid-gap: 10px;
-    }
-  }
 
   &:hover {
     box-shadow: 2px 2px 10px #00000072;

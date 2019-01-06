@@ -3,13 +3,21 @@
     <SectionHeader :title="getTitle"
                    goto='formacion-docente-programa-formacion-cursos'
                    name='Portafolio de Cursos' />
-    <p class="auto-break header-description"
-       v-if="description">{{description}}</p>
+    <p class="header-description"
+       v-if="description || programFormacionDocente">
+      <span class="auto-break"
+            v-if="description">{{description}}</span>
+      <a rel="noopener"
+         target="_blank"
+         v-if="programFormacionDocente"
+         :href="programFormacionDocente">
+        Descarga el Programa de Formación Docente
+      </a>
+    </p>
     <div v-if="loading">
       <span>Cargando...</span>
     </div>
     <div class="grid"
-         :class="{'index-view' :isIndex ,'normal-view' :!isIndex }"
          v-else-if="cursos && cursos.length > 0">
       <CursoCard :curso="curso"
                  v-for="curso in cursos"
@@ -19,14 +27,7 @@
     <div v-else>
       <span>{{getErrorMessage}} Visita nuestro Portafolio de Cursos</span>
     </div>
-    <!-- TODO: move to principal page 
-      <a class="btn btn-outline-primary btn-sm btn-large"
-       rel="noopener"
-       target="_blank"
-       v-if="programFormacionDocente"
-       :href="programFormacionDocente">
-      <i class="fas fa-calendar-alt"></i> Programa de Formación Docente
-    </a> -->
+
   </div>
 </template>
 
@@ -36,7 +37,7 @@ import CursoCard from "@/components/cards/CursoCard";
 import SectionHeader from "@/components/sections/SectionHeader";
 
 export default {
-  props: ["description", "isIndex"],
+  props: ["description", "isIndex", "programFormacionDocente"],
   components: { CursoCard, SectionHeader },
   data() {
     return { cursos: null, loading: true };
@@ -85,47 +86,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .grid {
   display: grid;
   grid-auto-rows: 225px;
   grid-gap: 20px;
-}
-
-.index-view {
-  grid-template-columns: repeat(3, 1fr);
-  @media only screen and (max-width: 1400px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-    & {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   @media only screen and (max-width: 768px) {
     & {
       grid-auto-rows: 200px;
-    }
-  }
-}
-
-.normal-view {
-  grid-template-columns: repeat(4, 1fr);
-  @media only screen and (max-width: 1400px) {
-    & {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    & {
-      grid-auto-rows: 200px;
-      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
     }
   }
 }

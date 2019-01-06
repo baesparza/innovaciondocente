@@ -11,7 +11,7 @@
         <div class="stack-card-content">
           <span class="stack-card-title">{{selectedProject.name | slice(0,45)}}</span>
           <div class="stack-card-spacer"></div>
-          <span class="stack-card-span"><b>Coordinador: </b>{{selectedProject.coordinator}}</span>
+          <span class="stack-card-span"><b>Coordinador: </b>{{selectedProject.coordinator.toLowerCase()}}</span>
           <div class="stack-card-spacer"></div>
           <span class="stack-card-span"><b>Participantes: </b>{{selectedProject.participants.length}}</span>
           <div class="stack-card-spacer"></div>
@@ -267,25 +267,32 @@ export default {
       font-size: 20px !important;
       line-height: 26px;
       text-align: center;
-      padding-top: 50px;
-      width: 60%;
+      padding-top: 100px;
+      width: 80%;
       margin: 0 auto;
     }
     &-span {
-      width: 80%;
+      width: 85%;
       margin: 0 auto;
       font-size: 16px;
       text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-transform: capitalize;
     }
     &-spacer {
       height: 13px;
+    }
+    b {
+      font-weight: 500;
     }
 
     &-btn {
       color: $color-primary;
       margin-top: auto;
       text-align: center;
-      padding-bottom: 30px;
+      padding-bottom: 50px;
       &-link {
         cursor: pointer;
         font-size: 16px;

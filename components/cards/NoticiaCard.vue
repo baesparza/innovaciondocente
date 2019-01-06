@@ -44,7 +44,7 @@ export default {
   align-items: center;
   box-shadow: 2px 2px 10px #0000003e;
   overflow: hidden;
-    transition: all 0.5s;
+  transition: all 0.5s;
 
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
@@ -94,10 +94,10 @@ export default {
     }
   }
   &-body {
-    padding: 15px;
+    padding: 20px;
     @media only screen and (max-width: 768px) {
       & {
-        padding: 10px;
+        padding: 15px;
       }
     }
     &-title {

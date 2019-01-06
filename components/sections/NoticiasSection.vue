@@ -8,7 +8,6 @@
       <span>Cargando...</span>
     </div>
     <div class="grid"
-         :class="{'index-view' :isIndex ,'normal-view' :!isIndex }"
          v-else-if="noticias && noticias.length > 0">
       <NoticiaCard :noticia="noticia"
                    v-for="(noticia, i ) in noticias"
@@ -27,7 +26,7 @@ import NoticiaCard from "~/components/cards/NoticiaCard";
 import SectionHeader from "@/components/sections/SectionHeader";
 
 export default {
-  props: ["isIndex"],
+  props: ['isIndex'],
   components: { NoticiaCard, SectionHeader },
   data() {
     return { noticias: null, loading: true };
@@ -63,42 +62,10 @@ export default {
   display: grid;
   grid-auto-rows: auto;
   grid-gap: 20px;
-}
-.index-view {
-  grid-template-columns: repeat(3, 1fr);
-  @media only screen and (max-width: 1400px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-    & {
-      // grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
-    }
-  }
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   @media only screen and (max-width: 768px) {
     & {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-}
-
-.normal-view {
-  grid-template-columns: repeat(4, 1fr);
-  @media only screen and (max-width: 1400px) {
-    & {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    & {
-      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
     }
   }
 }

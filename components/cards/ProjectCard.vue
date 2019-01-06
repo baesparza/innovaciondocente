@@ -12,7 +12,7 @@
     </div>
     <!-- details -->
     <div class="card-details">
-      <span class="card-title">{{proyecto.name}}</span>
+      <span class="card-title">{{proyecto.name.toLowerCase()}}</span>
       <div class="spacer"></div>
       <span class="card-coordinator"><b>Coordinador: </b>{{proyecto.coordinator.toLowerCase()}}</span>
       <div class="spacer"></div>
