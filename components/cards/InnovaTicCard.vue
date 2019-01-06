@@ -12,7 +12,7 @@
       <!-- title & data -->
       <div class="card-content">
         <span class="card-content-title">{{innovaTic.name}}</span>
-        <span class="auto-break card-content-date">{{innovaTic.added | dateTimestamp}}</span>
+        <span class=" card-content-date">{{innovaTic.added | dateTimestamp}}</span>
       </div>
       <!-- Play-btn -->
       <div class="card-play">

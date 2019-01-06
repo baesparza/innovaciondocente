@@ -35,45 +35,35 @@
     </header>
 
     <!-- encuentros portfolio -->
-    <section v-if="encuentros"
-             id="encuentros"
-             ref="encuentros">
-      <div class="container-fluid">
-        <h2>
-          Portafolio de Encuentros
-        </h2>
-        <div class="encuentros">
-          <div class="row"
-               ref="scroll">
-            <nuxt-link class="col-lg-3 col-md-5 col-sm-7"
-                       v-for="encuentro in encuentros"
-                       :key="encuentro.id"
-                       :to="{name: 'formacion-docente-cafe-cientifico-id', params: {id: encuentro.id}}"
-                       tag="div">
-              <div class="card card__two link">
-                <figure class="card__img"
-                        :style="'background-image: url('+encuentro.img+');'">
-                </figure>
-                <div class="card__desc">
-                  <h4>{{encuentro.name | slice(0,45)}}</h4>
-                </div>
-              </div>
-            </nuxt-link>
+    <section>
+      <div v-if="encuentros"
+           id="encuentros"
+           ref="encuentros"
+           class="container">
+
+        <div class="header-row">
+          <h2 class="header-title">
+            Portafolio de Encuentros
+          </h2>
+          <div class="actions">
+            <a @click="scrollLeft"
+               class="arrow">
+              <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="spacer"></div>
+            <a @click="scrollRight"
+               class="arrow">
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
         </div>
-        <div class="row">
-          <div class="col-6">
-            <button class="btn btn-large btn-sm btn-outline-primary"
-                    @click="scrollLeft">
-              <i class="fas fa-arrow-left"></i>
-            </button>
-          </div>
-          <div class="col-6">
-            <button class="btn btn-large btn-sm btn-outline-primary"
-                    @click="scrollRight">
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
+        <div class="vertical-list"
+             ref="scroll">
+          <EncuentroCard class="card"
+                         v-for="encuentro in encuentros"
+                         :key="encuentro.id"
+                         :encuentro="encuentro" />
+
         </div>
       </div>
     </section>
@@ -85,8 +75,9 @@
 </template>
 
 <script>
-import SuscripcionSection from "@/components/sections/SuscripcionSection";
 import { AFirestore } from "~/plugins/firebase.js";
+import SuscripcionSection from "@/components/sections/SuscripcionSection";
+import EncuentroCard from "@/components/cards/EncuentroCard";
 
 export default {
   async asyncData() {
@@ -106,10 +97,10 @@ export default {
   },
   methods: {
     scrollLeft() {
-      this.$refs.scroll.scrollLeft -= this.$refs.encuentros.offsetWidth * 0.5;
+      this.$refs.scroll.scrollLeft -= this.$refs.encuentros.offsetWidth * 0.4;
     },
     scrollRight() {
-      this.$refs.scroll.scrollLeft += this.$refs.encuentros.offsetWidth * 0.5;
+      this.$refs.scroll.scrollLeft += this.$refs.encuentros.offsetWidth * 0.4;
     }
   },
   computed: {
@@ -118,7 +109,7 @@ export default {
       return this.encuentros[0];
     }
   },
-  components: { SuscripcionSection },
+  components: { SuscripcionSection, EncuentroCard },
   head() {
     return {
       title: "Café Científico",
@@ -151,19 +142,18 @@ export default {
 
 .header {
   object-fit: cover;
-  overflow: hidden;
   height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   color: $color-text-primary;
   text-align: center;
+  overflow: hidden;
 }
 .background-banner {
   left: 0;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
   text-align: center;
   position: absolute;
   background-color: $color-primary;
@@ -171,6 +161,7 @@ export default {
   z-index: -2;
   -webkit-filter: blur(20px);
   filter: blur(20px);
+  overflow: hidden;
   img {
     object-fit: cover;
     width: 100%;
@@ -201,24 +192,51 @@ export default {
   }
 }
 
-#encuentros {
+.header-title {
+  font-size: 30px;
+  font-weight: 400;
+  margin-right: 15px;
+}
+.header-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    .arrow {
+      color: $color-primary;
+      cursor: pointer;
+    }
+    .spacer {
+      width: 15px;
+    }
+  }
+}
+section {
   background-color: $color-background;
-  .row {
-    overflow: auto;
-    display: -webkit-box;
-    flex-wrap: nowrap;
-  }
-  ::-webkit-scrollbar {
-    display: none;
-  }
 }
 
-figure {
-  overflow: hidden;
-  padding-bottom: 50% !important;
-  height: 0;
-  margin: 0;
-  background-color: $color-primary;
-  background-size: cover;
+#encuentros {
+  background-color: $color-background;
+  width: 100%;
+  .vertical-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    width: 100%;
+    .card {
+      min-width: 350px;
+      height: 230px;
+      margin-right: 15px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 </style>
+
