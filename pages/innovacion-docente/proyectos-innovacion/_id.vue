@@ -12,16 +12,18 @@
       <div v-if="proyecto.img">
         <div class="banner">
           <div class="banner-img"
-               :style="getBannerPath(proyecto.img)"></div>
+               :style="getBannerPath"></div>
         </div>
         <div class="spacer"></div>
       </div>
       <div class="row">
         <div class="col-md-4">
           <!-- proyect type -->
-          <h2>{{proyecto.type | proyectoInnovacionType}}</h2>
+          <h2>{{getProyectoType}}</h2>
           <!-- modality -->
-          <h3><b>Modalidad: </b> {{proyecto.modality}}</h3>
+          <h3>
+            Modalidad {{proyecto.modality}}
+          </h3>
           <div class="spacer"></div>
           <!-- areas -->
           <span v-if="proyecto.area.administrativa ||proyecto.area.biologica ||proyecto.area.sociohumanistica || proyecto.area.tecnica"
@@ -35,7 +37,7 @@
           <span v-if="proyecto.participants.length > 0">
             <h3>Carreras Participantes</h3>
             <ul>
-              <li v-for="(carreer, i) in getProjectCarreers(proyecto.participants)"
+              <li v-for="(carreer, i) in getProjectCarreers"
                   :key="i">{{carreer}}</li>
             </ul>
             <div class="spacer"></div>
@@ -71,7 +73,7 @@
           <span v-if="proyecto.periods.length > 0">
             <h3>Período académico de ejecución</h3>
             <span class="data-field">
-              {{getProjectPeriods(proyecto.periods)}}
+              {{getProjectPeriods}}
             </span>
           </span>
           <div class="spacer"></div>
@@ -117,10 +119,11 @@
 
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
-import AreasChips from "@/components/innovacion-docente/proyectos-innovacion/AreasChips";
+import AreasChips from "@/components/other/AreasChips";
 import ImageModal from "@/components/utils/ImageModal";
 import VideoModal from "@/components/utils/VideoModal";
 export default {
+  components: { AreasChips, ImageModal, VideoModal },
   async asyncData({ params }) {
     let proyecto = null;
     try {
@@ -135,24 +138,29 @@ export default {
     } catch (error) {}
     return { proyecto };
   },
-  methods: {
-    getBannerPath(img) {
-      return "background-image: url(" + img + ");";
+  computed: {
+    getProyectoType() {
+      return this.proyecto.proyectType == "proyecto-actual"
+        ? "Proyecto Actual"
+        : "Buena Práctica";
     },
-    getProjectPeriods: proyectPeriods => {
+    getBannerPath() {
+      return "background-image: url(" + this.proyecto.img + ");";
+    },
+    getProjectPeriods() {
       let res = "";
-      for (let i = 0; i < proyectPeriods.length; i++) {
-        res += proyectPeriods[i].name;
-        if (i < proyectPeriods.length - 1) {
+      for (let i = 0; i < this.proyecto.periods.length; i++) {
+        res += this.proyecto.periods[i].name;
+        if (i < this.proyecto.periods.length - 1) {
           res += " / ";
         }
       }
       return res;
     },
-    getProjectCarreers: proyectParticipants => {
+    getProjectCarreers() {
       let carreers = [];
-      for (let i = 0; i < proyectParticipants.length; i++) {
-        carreers.push(proyectParticipants[i].department);
+      for (let i = 0; i < this.proyecto.participants.length; i++) {
+        carreers.push(this.proyecto.participants[i].department);
       }
 
       return carreers.filter(function(item, pos) {
@@ -160,7 +168,6 @@ export default {
       });
     }
   },
-  components: { AreasChips, ImageModal, VideoModal },
   head() {
     return {
       title: this.proyecto ? this.proyecto.name : "No se encontro el proyecto"
@@ -210,7 +217,7 @@ h2 {
 }
 h3 {
   font-size: 23px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .data-field {
   margin-left: 15px;

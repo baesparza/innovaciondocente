@@ -5,8 +5,8 @@
     <div class="card-header">
       <div class="card-header-img"
            :style="getBannerPath"></div>
-      <div class="card-header-overlay">
-        Noticia </div>
+      <!-- <div class="card-header-overlay">
+        Noticia </div> -->
     </div>
     <div class="card-body">
       <span class="card-body-title">
@@ -44,10 +44,12 @@ export default {
   align-items: center;
   box-shadow: 2px 2px 10px #0000003e;
   overflow: hidden;
+  transition: all 0.5s;
+
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
     .card-header-img {
-      transform: scale(1.1);
+      transform: scale(1.04);
     }
   }
   &-header {
@@ -82,6 +84,7 @@ export default {
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0.664)
       );
 
@@ -91,7 +94,12 @@ export default {
     }
   }
   &-body {
-    padding: 13px 20px;
+    padding: 20px;
+    @media only screen and (max-width: 768px) {
+      & {
+        padding: 15px;
+      }
+    }
     &-title {
       font-size: 22px;
       font-weight: 400;

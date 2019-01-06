@@ -13,13 +13,13 @@
 
       <!--Cursos section-->
       <section>
-        <Cursos :programFormacionDocente="programFormacionDocente"
-                :description="description"></Cursos>
+        <CursosSection :programFormacionDocente="programFormacionDocente"
+                :description="description" />
       </section>
 
       <!--Videos section-->
       <section>
-        <Videos :description="tips.description"></Videos>
+        <InnovaTicsSection :description="tips.description"/>
       </section>
 
       <!--PDF sections-->
@@ -55,10 +55,11 @@
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
 import SectionHeader from "@/components/sections/SectionHeader";
+import CursosSection from "@/components/sections/CursosSection";
+import InnovaTicsSection from "@/components/sections/InnovaTicsSection";
 
-import Cursos from "@/components/formacion-docente/Cursos";
-import Videos from "@/components/formacion-docente/Videos";
 export default {
+  components: { CursosSection, InnovaTicsSection, SectionHeader },
   async asyncData() {
     const programaFormacionSnap = await AFirestore.collection(
       "formacion-docente"
@@ -68,7 +69,6 @@ export default {
     if (programaFormacionSnap.exists)
       return { ...programaFormacionSnap.data() };
   },
-  components: { Cursos, Videos, SectionHeader },
   head() {
     return {
       title: this.title,

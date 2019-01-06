@@ -8,7 +8,6 @@
       <span>Cargando...</span>
     </div>
     <div class="grid"
-         :class="{'index-view' :isIndex ,'normal-view' :!isIndex }"
          v-else-if="noticias && noticias.length > 0">
       <NoticiaCard :noticia="noticia"
                    v-for="(noticia, i ) in noticias"
@@ -27,7 +26,7 @@ import NoticiaCard from "~/components/cards/NoticiaCard";
 import SectionHeader from "@/components/sections/SectionHeader";
 
 export default {
-  props: ["isIndex"],
+  props: ['isIndex'],
   components: { NoticiaCard, SectionHeader },
   data() {
     return { noticias: null, loading: true };
@@ -37,12 +36,14 @@ export default {
       const query = AFirestore.collection(
         "observatorio/edutendencias/noticias"
       ).orderBy("created", "desc");
-      const querySnapshot = this.isIndex
+      const noticiaSnap = this.isIndex
         ? await query.limit(4).get()
         : await query.get();
-      this.noticias = querySnapshot.docs.map(doc =>
-        Object.assign({ id: doc.id }, doc.data())
-      );
+      if (noticiaSnap.empty) throw "No data found";
+      else
+        this.noticias = noticiaSnap.docs.map(doc =>
+          Object.assign({ id: doc.id }, doc.data())
+        );
     } catch (error) {
       console.log(error);
     }
@@ -60,48 +61,11 @@ export default {
 .grid {
   display: grid;
   grid-auto-rows: auto;
-  grid-auto-flow: row dense;
-  grid-gap: 10px;
-}
-.index-view {
-  grid-template-columns: repeat(4, 1fr);
-  @media only screen and (max-width: 1400px) {
-    & {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   @media only screen and (max-width: 768px) {
     & {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-}
-
-.normal-view {
-  grid-template-columns: repeat(5, 1fr);
-  @media only screen and (max-width: 1400px) {
-    & {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-    & {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (max-width: 576px) {
-    & {
-      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
     }
   }
 }

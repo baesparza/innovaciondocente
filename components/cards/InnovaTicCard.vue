@@ -3,14 +3,18 @@
 
     <div class="card"
          v-on:click='openVideoModal'>
-      <div class="card-img">
-        <div class="card-img-container"
-             :style="getImage"></div>
+      <!-- IMG -->
+      <div class="aspect-ratio">
+        <div class="card-img"
+             :style="getImage">
+        </div>
       </div>
+      <!-- title & data -->
       <div class="card-content">
-        <span class="card-content-title">{{innovaTic.name|slice(0,25)}}</span>
-        <p class="auto-break card-content-description">{{innovaTic.added| dateTimestamp}}</p>
+        <span class="card-content-title">{{innovaTic.name}}</span>
+        <span class=" card-content-date">{{innovaTic.added | dateTimestamp}}</span>
       </div>
+      <!-- Play-btn -->
       <div class="card-play">
         <i class="fas fa-play-circle"></i>
       </div>
@@ -80,59 +84,70 @@ export default {
 
 <style lang="scss" scoped>
 @import "assets/variables";
+
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
 .card {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  // card style
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
   padding: 10px;
   background-color: #dfdfdf72;
   border-radius: 5px;
-  height: 100%;
   cursor: pointer;
-  align-items: center;
   box-shadow: 2px 2px 10px #0000003e;
-  color: black;
+  transition: all 0.5s;
+
+  // position elements
+  display: grid;
+  grid-template-columns: 3fr 6fr auto;
+  grid-gap: 15px;
+  align-items: center;
+
   &:hover {
     box-shadow: 2px 2px 10px #00000072;
-    cursor: pointer;
   }
 
   &-img {
-    flex: 0 0 130px;
-    @media only screen and (max-width: 768px) {
-      & {
-        flex: 0 0 100px;
-      }
-    }
-    &-container {
-      background-color: $color-primary;
-      width: 100%;
-      padding-top: 56.25%;
-      background-image: url("~/static/default.png");
-      border-radius: 3px 3px 0px 0px;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      overflow: hidden;
-    }
-  }
-  &-content {
-    flex-grow: 1;
+    // position
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    // decoration
+    background-color: $color-primary;
+    background-image: url("~/static/default.png");
+    border-radius: 3px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
+  }
+
+  &-content {
+    overflow: hidden;
     &-title {
-      max-lines: 1;
-      font-weight: 500;
+      font-size: 20px;
+      font-weight: 400;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: justify;
     }
-    &-description {
-      max-lines: 3;
-      margin: 0;
-      font-size: 14px;
+    &-date {
+      font-size: 15px;
     }
   }
   &-play {
     color: $color-primary;
+    font-size: 18px;
   }
 }
 .modal {

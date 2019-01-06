@@ -5,19 +5,10 @@
                    name='Ver mas InnovaTics' />
     <p class="auto-break header-description"
        v-if="description">{{description}}</p>
-    <!-- TODO: fix this section 
-        <span class="header-title">#InnovaciónenlaUTPL</span>
-      <a target="_blank"
-         rel="noopener"
-         class="header-more"
-         href="https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg">
-        Innovación Docente en YouTube
-      </a> -->
     <div v-if="loading">
       <span>Cargando...</span>
     </div>
     <div class="grid"
-         :class="{'index-view' :isIndex ,'normal-view' :!isIndex }"
          v-else-if="innovaTics && innovaTics.length > 0">
       <InnovaTicCard v-for="innovaTic in innovaTics"
                      :key="innovaTic.id"
@@ -44,16 +35,17 @@ export default {
   async mounted() {
     try {
       // use ternary operator
-
       const query = AFirestore.collection(
         "formacion-docente/programa-formacion/tips"
       ).orderBy("added", "desc");
       const tipsSnap = this.isIndex
         ? await query.limit(4).get()
         : await query.limit(6).get();
-      this.innovaTics = tipsSnap.docs.map(doc =>
-        Object.assign({ id: doc.id }, doc.data())
-      );
+      if (tipsSnap.empty) throw "No data found";
+      else
+        this.innovaTics = tipsSnap.docs.map(doc =>
+          Object.assign({ id: doc.id }, doc.data())
+        );
     } catch (error) {
       console.error(error);
     }
@@ -67,40 +59,21 @@ export default {
 
 .grid {
   display: grid;
-  grid-auto-flow: row dense;
   grid-gap: 20px;
-  grid-auto-rows: auto;
-}
-
-.index-view {
-  grid-template-columns: repeat(2, 1fr);
-  @media only screen and (max-width: 992px) {
-    & {
-      grid-gap: 15px;
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    & {
-    }
-  }
-}
-
-.normal-view {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   @media only screen and (max-width: 1400px) {
     & {
-      grid-gap: 15px;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     }
   }
   @media only screen and (max-width: 992px) {
     & {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     }
   }
   @media only screen and (max-width: 768px) {
     & {
+      grid-gap: 15px;
     }
   }
 }

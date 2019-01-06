@@ -2,31 +2,37 @@
   <div class="chips">
     <nuxt-link tag="span"
                v-if="area.administrativa"
-               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{view:'normal',type:queryType,area:'administrativa'}}"
+               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{type:queryType,area:'administrativa'}}"
                class="chips-detail area-administrativa">Área Administrativa</nuxt-link>
     <nuxt-link tag="span"
                v-if="area.biologica"
-               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{view:'normal',type:queryType,area:'biologica'}}"
+               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{type:queryType,area:'biologica'}}"
                class="chips-detail area-biologica">Área Biológica y Biomédica</nuxt-link>
     <nuxt-link tag="span"
                v-if="area.sociohumanistica"
-               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{view:'normal',type:queryType,area:'sociohumanistica'}}"
+               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{type:queryType,area:'sociohumanistica'}}"
                class="chips-detail area-sociohumanistica">Área Sociohumanística</nuxt-link>
     <nuxt-link tag="span"
                v-if="area.tecnica"
-               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{view:'normal',type:queryType,area:'tecnica'}}"
+               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{type:queryType,area:'tecnica'}}"
                class="chips-detail area-tecnica">Área Técnica</nuxt-link>
+    <nuxt-link tag="span"
+               v-if="clean"
+               :to="{name: 'innovacion-docente-proyectos-innovacion', query:{type:queryType}}"
+               class="chips-detail clean-btn">Limpiar Filtro</nuxt-link>
   </div>
 </template>
 
 
 <script>
 export default {
-  props: ["area", "queryType"]
+  props: ["area", "queryType", "clean"]
 };
 </script>
 
 <style lang="scss" scoped>
+@import "assets/variables";
+
 .chips {
   display: -webkit-flex; /* Safari */
   -webkit-flex-wrap: wrap; /* Safari 6.1+ */
@@ -41,6 +47,7 @@ export default {
     border-width: 3px;
     letter-spacing: 0.5px;
     cursor: pointer;
+    font-size: 15px;
   }
 }
 
@@ -63,6 +70,12 @@ export default {
   border-color: #00981c;
   background-color: #00981c;
   color: #fff;
+}
+
+.clean-btn {
+  border-color: $color-primary;
+  background-color: $color-background;
+  color: $color-text;
 }
 </style>
 

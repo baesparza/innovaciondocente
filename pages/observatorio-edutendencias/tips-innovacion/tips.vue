@@ -9,7 +9,7 @@
         <div v-for="(card, i) in cards"
              :key="i"
              class="col-lg-4 col-md-6">
-          <card :nota="card" />
+          <TipCard :nota="card" />
         </div>
       </div>
       <div v-else>
@@ -23,9 +23,10 @@
 
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
-import Card from "@/components/Index/Card";
+import TipCard from "@/components/cards/TipCard";
 
 export default {
+  components: { TipCard },
   async asyncData({ query }) {
     let cards = [];
     try {
@@ -51,9 +52,6 @@ export default {
       console.log(error);
     }
     return { cards };
-  },
-  components: {
-    card: Card
   },
   head() {
     return {

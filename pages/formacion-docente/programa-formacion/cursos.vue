@@ -66,7 +66,6 @@ export default {
   padding-bottom: 15px;
   display: grid;
   grid-auto-rows: 225px;
-  grid-auto-flow: row dense;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   @media only screen and (max-width: 1400px) {
