@@ -180,7 +180,6 @@ export default {
         const y = circle.distance * Math.sin(circle.radians);
 
         if (
-          // TODO: add distance to center of each and select closer
           mouse.x > x - circle.radius &&
           mouse.x < x + circle.radius &&
           mouse.y > y - circle.radius &&

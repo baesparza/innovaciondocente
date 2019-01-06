@@ -61,9 +61,11 @@ export default {
           .limit(4)
           .get();
       }
-      this.cursos = cursosSnap.docs.map(doc =>
-        Object.assign({ id: doc.id }, doc.data())
-      );
+      if (cursosSnap.empty) throw "No data found";
+      else
+        this.cursos = cursosSnap.docs.map(doc =>
+          Object.assign({ id: doc.id }, doc.data())
+        );
     } catch (error) {
       console.error(error);
     }

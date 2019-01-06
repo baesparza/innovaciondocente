@@ -44,16 +44,17 @@ export default {
   async mounted() {
     try {
       // use ternary operator
-
       const query = AFirestore.collection(
         "formacion-docente/programa-formacion/tips"
       ).orderBy("added", "desc");
       const tipsSnap = this.isIndex
         ? await query.limit(4).get()
         : await query.limit(6).get();
-      this.innovaTics = tipsSnap.docs.map(doc =>
-        Object.assign({ id: doc.id }, doc.data())
-      );
+      if (tipsSnap.empty) throw "No data found";
+      else
+        this.innovaTics = tipsSnap.docs.map(doc =>
+          Object.assign({ id: doc.id }, doc.data())
+        );
     } catch (error) {
       console.error(error);
     }

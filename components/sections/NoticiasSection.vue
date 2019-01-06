@@ -37,12 +37,14 @@ export default {
       const query = AFirestore.collection(
         "observatorio/edutendencias/noticias"
       ).orderBy("created", "desc");
-      const querySnapshot = this.isIndex
+      const noticiaSnap = this.isIndex
         ? await query.limit(4).get()
         : await query.get();
-      this.noticias = querySnapshot.docs.map(doc =>
-        Object.assign({ id: doc.id }, doc.data())
-      );
+      if (noticiaSnap.empty) throw "No data found";
+      else
+        this.noticias = noticiaSnap.docs.map(doc =>
+          Object.assign({ id: doc.id }, doc.data())
+        );
     } catch (error) {
       console.log(error);
     }
