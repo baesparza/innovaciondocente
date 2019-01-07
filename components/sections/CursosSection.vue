@@ -62,8 +62,7 @@ export default {
           .limit(4)
           .get();
       }
-      if (cursosSnap.empty) throw "No data found";
-      else
+      if (!cursosSnap.empty)
         this.cursos = cursosSnap.docs.map(doc =>
           Object.assign({ id: doc.id }, doc.data())
         );

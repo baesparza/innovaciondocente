@@ -23,13 +23,18 @@
           <section class="container"
                    id="cursos">
             <CursosSection :isIndex="true" />
+            <div class="spacer"></div>
           </section>
-          <div class="spacer"></div>
+          <section class="container"
+                   id="encuentros">
+            <EncuentrosSection />
+            <div class="spacer"></div>
+          </section>
           <section class="container"
                    id="innovaTics">
             <InnovaTicsSection :isIndex="true" />
+            <div class="spacer"></div>
           </section>
-          <div class="spacer"></div>
           <section class="container"
                    id="noticias">
             <NoticiasSection :isIndex="true" />
@@ -43,15 +48,25 @@
 <script>
 import CursosSection from "@/components/sections/CursosSection";
 import InnovaTicsSection from "@/components/sections/InnovaTicsSection";
+import EncuentrosSection from "@/components/sections/EncuentrosSection";
 import NoticiasSection from "~/components/sections/NoticiasSection";
 
 export default {
-  components: { CursosSection, InnovaTicsSection, NoticiasSection },
+  components: {
+    CursosSection,
+    InnovaTicsSection,
+    EncuentrosSection,
+    NoticiasSection
+  },
   data() {
     return {
       sections: {
         cursos: {
           name: "Cursos",
+          active: false
+        },
+        encuentros: {
+          name: "Encuentros",
           active: false
         },
         innovaTics: {
@@ -70,6 +85,7 @@ export default {
       const spyNot = document.querySelectorAll("#noticias");
       const spyCur = document.querySelectorAll("#cursos");
       const spyTip = document.querySelectorAll("#innovaTics");
+      const spyEnc = document.querySelectorAll("#encuentros");
       spyNot.forEach(el => {
         this.sections.noticias.active = this.validator(el);
       });
@@ -78,6 +94,9 @@ export default {
       });
       spyTip.forEach(el => {
         this.sections.innovaTics.active = this.validator(el);
+      });
+      spyEnc.forEach(el => {
+        this.sections.encuentros.active = this.validator(el);
       });
     },
     validator(el) {
@@ -182,7 +201,7 @@ section {
   .spacer {
     height: 20px;
   }
-  .scroll-bar{
+  .scroll-bar {
     display: none;
   }
 }

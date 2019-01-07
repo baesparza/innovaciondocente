@@ -31,7 +31,6 @@
       </div>
     </header>
     <ScrollContainer />
-    <CafeCientifico />
     <LiiD :liid='indexData.liid'
           :project='indexData.project' />
     <QuienesSomos :quienesSomos="indexData['quienes-somos']" />
@@ -44,7 +43,6 @@
 import { AFirestore } from "~/plugins/firebase.js";
 
 import Navbar from "@/components/Navbar";
-import CafeCientifico from "@/components/Index/CafeCientifico";
 import LiiD from "@/components/Index/Liid";
 import QuienesSomos from "@/components/Index/QuienesSomos";
 import FooterIndex from "@/components/Index/FooterIndex";
@@ -73,7 +71,6 @@ export default {
     Navbar,
     LiiD,
     QuienesSomos,
-    CafeCientifico,
     SuscripcionSection,
     ScrollContainer,
     FooterIndex
