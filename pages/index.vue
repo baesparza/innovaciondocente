@@ -108,7 +108,7 @@ p {
 .header {
   object-fit: cover;
   overflow: hidden;
-  height: 100vh;
+  height: 100vmin;
   width: 100%;
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@ p {
 .fondo {
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100vmin;
   overflow: hidden;
   text-align: center;
   position: absolute;
@@ -127,8 +127,8 @@ p {
     object-fit: cover;
     width: 100%;
     min-height: 300px;
-    height: 100vh;
-    max-height: 100vh;
+    height: 100vmin;
+    max-height: 100vmin;
     opacity: 1;
     position: relative;
     animation: moving 10s infinite linear alternate;
@@ -143,7 +143,7 @@ p {
   }
 }
 .header-overlay {
-  height: 100vh;
+  height: 100vmin;
   width: 100%;
   position: absolute;
   background: $color-primary;
@@ -151,6 +151,7 @@ p {
   z-index: -1;
 }
 .header-content {
+  padding: 15px;
   margin: auto;
   text-align: center;
   h1 {

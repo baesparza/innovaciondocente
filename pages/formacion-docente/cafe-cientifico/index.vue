@@ -97,10 +97,16 @@ export default {
   },
   methods: {
     scrollLeft() {
-      this.$refs.scroll.scrollLeft -= this.$refs.encuentros.offsetWidth * 0.4;
+      this.$refs.scroll.scrollBy({
+        left: -330,
+        behavior: "smooth"
+      });
     },
     scrollRight() {
-      this.$refs.scroll.scrollLeft += this.$refs.encuentros.offsetWidth * 0.4;
+      this.$refs.scroll.scrollBy({
+        left: 330,
+        behavior: "smooth"
+      });
     }
   },
   computed: {

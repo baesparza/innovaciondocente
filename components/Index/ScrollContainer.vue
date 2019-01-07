@@ -23,18 +23,18 @@
           <section class="container"
                    id="cursos">
             <CursosSection :isIndex="true" />
-            <div class="spacer"></div>
           </section>
+          <div class="spacer"></div>
           <section class="container"
                    id="encuentros">
             <EncuentrosSection />
-            <div class="spacer"></div>
           </section>
+          <div class="spacer"></div>
           <section class="container"
                    id="innovaTics">
             <InnovaTicsSection :isIndex="true" />
-            <div class="spacer"></div>
           </section>
+          <div class="spacer"></div>
           <section class="container"
                    id="noticias">
             <NoticiasSection :isIndex="true" />
@@ -196,9 +196,9 @@ section {
 
 @media only screen and (max-width: 992px) {
   .content {
-    padding: 15px;
+    padding: 25px 15px;
   }
-  .spacer {
+   .spacer {
     height: 20px;
   }
   .scroll-bar {
