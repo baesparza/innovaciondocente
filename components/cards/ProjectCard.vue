@@ -46,7 +46,7 @@ export default {
 .aspect-ratio {
   position: relative;
   width: 100%;
-  padding-top: 40%;
+  padding-top: 50%;
   overflow: hidden;
   border-radius: 5px 5px 0 0;
 }

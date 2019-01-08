@@ -136,6 +136,7 @@ div[class^="col-"] {
   color: $color-text-primary;
   z-index: 100;
   background-image: linear-gradient(to bottom, #0d426b, #0d426b, #ff0266);
+    border-bottom-right-radius: 50px;
   &-container {
     padding: 80px 0;
     position: sticky;
@@ -198,7 +199,7 @@ section {
   .content {
     padding: 25px 15px;
   }
-   .spacer {
+  .spacer {
     height: 20px;
   }
   .scroll-bar {

@@ -43,7 +43,7 @@ export default {
   data() {
     const query = this.$route.query;
     return {
-      projectType: query.type,
+      projectType: query.type ? query.type : "proyecto-actual",
       projectArea: query.area,
       showCanvas: null,
       showCanvasControler: null

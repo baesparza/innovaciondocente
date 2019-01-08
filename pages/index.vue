@@ -31,8 +31,7 @@
       </div>
     </header>
     <ScrollContainer />
-    <LiiD :liid='indexData.liid'
-          :project='indexData.project' />
+    <ProyectosSection />
     <QuienesSomos :quienesSomos="indexData['quienes-somos']" />
     <SuscripcionSection title="Suscríbete"
                         description="Obtenga las últimas noticias de Innovación UTPL entregadas en su bandeja de entrada." />
@@ -43,7 +42,7 @@
 import { AFirestore } from "~/plugins/firebase.js";
 
 import Navbar from "@/components/Navbar";
-import LiiD from "@/components/Index/Liid";
+import ProyectosSection from "@/components/Index/ProyectosSection";
 import QuienesSomos from "@/components/Index/QuienesSomos";
 import FooterIndex from "@/components/Index/FooterIndex";
 import ScrollContainer from "@/components/Index/ScrollContainer";
@@ -69,7 +68,7 @@ export default {
   },
   components: {
     Navbar,
-    LiiD,
+    ProyectosSection,
     QuienesSomos,
     SuscripcionSection,
     ScrollContainer,
