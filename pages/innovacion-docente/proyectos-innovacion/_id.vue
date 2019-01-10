@@ -35,7 +35,7 @@
           </span>
           <!-- carreers -->
           <span v-if="proyecto.participants.length > 0">
-            <h3>Carreras Participantes</h3>
+            <h3>Titulaciones Participantes</h3>
             <ul>
               <li v-for="(carreer, i) in getProjectCarreers"
                   :key="i">{{carreer}}</li>
