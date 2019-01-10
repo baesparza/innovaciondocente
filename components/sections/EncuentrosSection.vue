@@ -8,10 +8,13 @@
     </div>
     <div class="grid"
          v-else-if="encuentros && encuentros.length > 0">
-      <EncuentroCard :encuentro="encuentro"
-                     v-for="encuentro in encuentros"
-                     :key="encuentro.id"
-                     class="card" />
+      <div class="aspect-ratio">
+
+        <EncuentroCard :encuentro="encuentro"
+                       v-for="encuentro in encuentros"
+                       :key="encuentro.id"
+                       class="card" />
+      </div>
     </div>
     <div v-else>
       <span>No hay próximos Encuentros. Visita nuestra Pagina de Encuentros</span>
@@ -57,16 +60,26 @@ export default {
 
 <style lang="scss" scoped>
 @import "assets/variables";
+.aspect-ratio {
+  width: 100%;
+  padding-top: 70%;
+  position: relative;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 .grid {
   display: grid;
-  grid-auto-rows: 400px;
   grid-gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   @media only screen and (max-width: 960px) {
     & {
       grid-template-columns: 1fr;
-      grid-auto-rows: 300px;
-      grid-gap: 15px;
     }
   }
 }
