@@ -1,21 +1,21 @@
 <template>
   <div>
-    <SectionHeader title="Últimos InnovaTics"
-                   goto='formacion-docente-programa-formacion-innovaTics'
-                   name='Ver mas InnovaTics' />
+    <SectionHeader title="Últimos InnovaTips"
+                   goto='formacion-docente-programa-formacion-InnovaTips'
+                   name='Ver mas InnovaTips' />
     <p class="auto-break header-description"
        v-if="description">{{description}}</p>
     <div v-if="loading">
       <span>Cargando...</span>
     </div>
     <div class="grid"
-         v-else-if="innovaTics && innovaTics.length > 0">
-      <InnovaTicCard v-for="innovaTic in innovaTics"
-                     :key="innovaTic.id"
-                     :innovaTic="innovaTic" />
+         v-else-if="InnovaTips && InnovaTips.length > 0">
+      <InnovaTipCard v-for="InnovaTip in InnovaTips"
+                     :key="InnovaTip.id"
+                     :InnovaTip="InnovaTip" />
     </div>
     <div v-else>
-      <span>No se pudieron cargar los últimos InnovaTics. Visita nuestro Portafolio de InnovaTics</span>
+      <span>No se pudieron cargar los últimos InnovaTips. Visita nuestro Portafolio de InnovaTips</span>
     </div>
   </div>
 </template>
@@ -23,14 +23,14 @@
 
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
-import InnovaTicCard from "@/components/cards/InnovaTicCard";
+import InnovaTipCard from "@/components/cards/InnovaTipCard";
 import SectionHeader from "@/components/sections/SectionHeader";
 
 export default {
   props: ["description", "isIndex"],
-  components: { InnovaTicCard, SectionHeader },
+  components: { InnovaTipCard, SectionHeader },
   data() {
-    return { innovaTics: null, loading: true };
+    return { InnovaTips: null, loading: true };
   },
   async mounted() {
     try {
@@ -43,7 +43,7 @@ export default {
         : await query.limit(6).get();
       if (tipsSnap.empty) throw "No data found";
       else
-        this.innovaTics = tipsSnap.docs.map(doc =>
+        this.InnovaTips = tipsSnap.docs.map(doc =>
           Object.assign({ id: doc.id }, doc.data())
         );
     } catch (error) {

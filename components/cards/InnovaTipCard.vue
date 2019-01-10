@@ -11,8 +11,8 @@
       </div>
       <!-- title & data -->
       <div class="card-content">
-        <span class="card-content-title">{{innovaTic.name}}</span>
-        <span class=" card-content-date">{{innovaTic.added | dateTimestamp}}</span>
+        <span class="card-content-title">{{InnovaTip.name}}</span>
+        <span class=" card-content-date">{{InnovaTip.added | dateTimestamp}}</span>
       </div>
       <!-- Play-btn -->
       <div class="card-play">
@@ -29,18 +29,18 @@
           <div class="modal-header">
             <a class="modal-header-title"
                :href="getLink"
-               target="_blank">{{innovaTic.name}}</a>
+               target="_blank">{{InnovaTip.name}}</a>
             <i class="fas fa-times modal-header-close"
                @click="close"></i>
           </div>
           <div class="modal-embed-container">
             <iframe :src="getVideoSrc"
                     frameborder="0"
-                    :title="innovaTic.name"
+                    :title="InnovaTip.name"
                     allow="autoplay; encrypted-media"
                     allowfullscreen></iframe>
           </div>
-          <p class="auto-break">{{innovaTic.description}}</p>
+          <p class="auto-break">{{InnovaTip.description}}</p>
         </div>
       </div>
     </transition>
@@ -49,7 +49,7 @@
 
 <script>
 export default {
-  props: ["innovaTic"],
+  props: ["InnovaTip"],
   data: () => {
     return {
       activeModal: false
@@ -57,16 +57,16 @@ export default {
   },
   computed: {
     getImage() {
-      let url = `https://i.ytimg.com/vi/${this.innovaTic.id}/hqdefault.jpg`;
+      let url = `https://i.ytimg.com/vi/${this.InnovaTip.id}/hqdefault.jpg`;
       return `background-image: url(${url} );`;
     },
     getVideoSrc() {
       return `https://www.youtube.com/embed/${
-        this.innovaTic.id
+        this.InnovaTip.id
       }?enablejsapi=1&html5=1`;
     },
     getLink() {
-      return `https://youtu.be/${this.innovaTic.id}`;
+      return `https://youtu.be/${this.InnovaTip.id}`;
     }
   },
   methods: {

@@ -31,8 +31,8 @@
           </section>
           <div class="spacer"></div>
           <section class="container"
-                   id="innovaTics">
-            <InnovaTicsSection :isIndex="true" />
+                   id="InnovaTips">
+            <InnovaTipsSection :isIndex="true" />
           </section>
           <div class="spacer"></div>
           <section class="container"
@@ -47,14 +47,14 @@
 
 <script>
 import CursosSection from "@/components/sections/CursosSection";
-import InnovaTicsSection from "@/components/sections/InnovaTicsSection";
+import InnovaTipsSection from "@/components/sections/InnovaTipsSection";
 import EncuentrosSection from "@/components/sections/EncuentrosSection";
 import NoticiasSection from "~/components/sections/NoticiasSection";
 
 export default {
   components: {
     CursosSection,
-    InnovaTicsSection,
+    InnovaTipsSection,
     EncuentrosSection,
     NoticiasSection
   },
@@ -69,8 +69,8 @@ export default {
           name: "Encuentros",
           active: false
         },
-        innovaTics: {
-          name: "InnovaTics",
+        InnovaTips: {
+          name: "InnovaTips",
           active: false
         },
         noticias: {
@@ -84,7 +84,7 @@ export default {
     handleScroll(event) {
       const spyNot = document.querySelectorAll("#noticias");
       const spyCur = document.querySelectorAll("#cursos");
-      const spyTip = document.querySelectorAll("#innovaTics");
+      const spyTip = document.querySelectorAll("#InnovaTips");
       const spyEnc = document.querySelectorAll("#encuentros");
       spyNot.forEach(el => {
         this.sections.noticias.active = this.validator(el);
@@ -93,7 +93,7 @@ export default {
         this.sections.cursos.active = this.validator(el);
       });
       spyTip.forEach(el => {
-        this.sections.innovaTics.active = this.validator(el);
+        this.sections.InnovaTips.active = this.validator(el);
       });
       spyEnc.forEach(el => {
         this.sections.encuentros.active = this.validator(el);

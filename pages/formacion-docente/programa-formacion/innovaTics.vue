@@ -4,9 +4,9 @@
       <h1>{{title}}</h1>
     </header>
     <div class="grid">
-      <InnovaTicCard v-for="innovaTic in innovaTics"
-                     :key="innovaTic.id"
-                     :innovaTic="innovaTic" />
+      <InnovaTipCard v-for="InnovaTip in InnovaTips"
+                     :key="InnovaTip.id"
+                     :InnovaTip="InnovaTip" />
     </div>
     <div class="container">
       <button @click="$router.go(-1)"
@@ -17,15 +17,15 @@
 
 <script>
 import { AFirestore } from "~/plugins/firebase.js";
-import InnovaTicCard from "@/components/cards/InnovaTicCard";
+import InnovaTipCard from "@/components/cards/InnovaTipCard";
 
 export default {
   async asyncData({ params }) {
-    let title = "InnovaTics";
+    let title = "InnovaTips";
     return { title };
   },
   data() {
-    return { innovaTics: null };
+    return { InnovaTips: null };
   },
   async mounted() {
     const tipsSnap = await AFirestore.collection(
@@ -33,7 +33,7 @@ export default {
     )
       .orderBy("added", "desc")
       .get();
-    this.innovaTics = tipsSnap.docs.map(doc =>
+    this.InnovaTips = tipsSnap.docs.map(doc =>
       Object.assign({ id: doc.id }, doc.data())
     );
   },
@@ -42,7 +42,7 @@ export default {
       title: this.title
     };
   },
-  components: { InnovaTicCard }
+  components: { InnovaTipCard }
 };
 </script>
 

@@ -1,11 +1,11 @@
 <template>
   <section>
     <div class="container">
-      <SectionHeader title="Proyectos Actuales"
-                     goto="innovacion-docente-proyectos-innovacion"
-                     name="Atrevete" />
       <div class="row">
         <div class=" col-md-5 flex-content">
+          <SectionHeader title="Proyectos Actuales"
+                         goto="innovacion-docente-proyectos-innovacion"
+                         name="Atrevete" />
           <span>Ascendere crea y motiva a las nuevas generaciones a poner en práctica, explorar
             nuevas areas con el fin de crear cosas simples pero asombrosas, tienes dudas pues te
             invitamos a explorar cada uno de los proyectos. <b>QUIENES SOMOS</b> A través de

@@ -19,7 +19,7 @@
 
       <!--Videos section-->
       <section>
-        <InnovaTicsSection :description="tips.description"/>
+        <InnovaTipsSection :description="tips.description"/>
       </section>
 
       <!--PDF sections-->
@@ -56,10 +56,10 @@
 import { AFirestore } from "~/plugins/firebase.js";
 import SectionHeader from "@/components/sections/SectionHeader";
 import CursosSection from "@/components/sections/CursosSection";
-import InnovaTicsSection from "@/components/sections/InnovaTicsSection";
+import InnovaTipsSection from "@/components/sections/InnovaTipsSection";
 
 export default {
-  components: { CursosSection, InnovaTicsSection, SectionHeader },
+  components: { CursosSection, InnovaTipsSection, SectionHeader },
   async asyncData() {
     const programaFormacionSnap = await AFirestore.collection(
       "formacion-docente"
