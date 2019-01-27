@@ -49,7 +49,7 @@ import ScrollContainer from "@/components/Index/ScrollContainer";
 import SuscripcionSection from "@/components/sections/SuscripcionSection";
 
 export default {
-  layout: "empty",
+  layout: "indevLayout",
   async asyncData() {
     const indexSnap = await AFirestore.collection("meta")
       .doc("index")

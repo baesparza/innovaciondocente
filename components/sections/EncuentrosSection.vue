@@ -42,9 +42,8 @@ export default {
       const querySnapshot = await AFirestore.collection(
         "formacion-docente/cafe-cientifico/encuentros"
       )
-        // .where("date", ">=", startDate)
+        .where("date", ">=", startDate)
         .orderBy("date", "desc")
-        .limit(1)
         .get();
       if (!querySnapshot.isEmpty)
         this.encuentros = querySnapshot.docs.map(doc =>
