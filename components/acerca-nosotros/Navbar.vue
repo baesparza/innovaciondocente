@@ -41,7 +41,7 @@ nav {
       border-radius: var(--text-radius);
     }
   }
-  @media (max-width: 728px) {
+  @media (max-width: 450px) {
     & {
       flex-direction: column;
       justify-content: center;

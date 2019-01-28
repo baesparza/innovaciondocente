@@ -15,29 +15,37 @@
           <Navbar />
         </header>
 
-        <Quote />
+        <Quote :text="projectDesc" />
 
         <section class="cards">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <Card title="Programa de Formacion"
+                description="El programa de Formación agrupa un conjunto de módulos que se dictan por medio de cursos, seminarios o talleres formativos, con el objetivo de potenciar la formación del profesorado de la universidad a través del uso de metodologías y herramientas adecuadas que garanticen la adquisición de las competencias necesarias para el desarrollo de la docencia e investigación de calidad."
+                :goto="{name: 'index'}"
+                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Fformacion.png?alt=media&token=873c00e4-f329-48e7-9e2f-19d21f965f54" />
+          <Card title="Cafe Cientifico"
+                description="Cada último jueves del mes en la UTPL, expertos y profesionales en diferentes campos dialogan y problematizan sobre un tema actual de una forma diferente e informal. Su finalidad es escuchar opiniones diversas y realizar algunos postulados que contribuyan al trabajo posterior y que ayuden a fomentar inquietudes que despiertan una entretenida discusión"
+                :goto="{name: 'index'}"
+                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Fliid.png?alt=media&token=29b9cb84-208d-4a3b-8d17-eaca9c840175" />
+          <Card title="Docentes Ascenders"
+                description="Semanalmente los profesores de Modalidad Presencial, Abierta y Postrados. Presentan su propuesta de Buenas Prácticas Docentes para potenciar el uso creativo de diferentes herramientas dentro y fuera del aula"
+                :goto="{name: 'index'}"
+                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Finovacion.png?alt=media&token=42a68471-70c1-4c30-a8f5-9dfd8a0b0bef" />
         </section>
 
-        <Quote />
-
         <section>
-          <BigCard />
-          <BigCard />
-          <BigCard />
+          <BigCard title="Laboratorio de Innovacion e investigacion Docente"
+                   description="Un espacio de la UTPL orientado al desarrollo de la innovación e investigación educativa a nivel local, nacional e internacional. Busca canalizar y potenciar todas las iniciativas de la comunidad universitaria que potencien el aprendizaje y la enseñanza con el uso de las nuevas tecnologías."
+                   image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/icons%2Fthumbnail_sello_laboratorio_investigacion_innovacion_feb_2018.png?alt=media&token=81b8fb6b-5f9e-4338-a6cc-e20ae8783e9e" />
+          <BigCard title="Página Web del Proyecto Ascendere"
+                   description="Compendio de las iniciativas de innovación y formación docente de la utpl y recursos para la enseñanzas de los mejores observatorios educativos"
+                   :goto="{name: 'index'}"
+                   image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2FwebPage.jpg?alt=media&token=0acdb79f-2f2b-4357-bf8f-4a5f364d7e71" />
         </section>
 
       </div>
     </div>
 
-    <footer >
+    <footer>
       <Navbar />
     </footer>
 
@@ -54,7 +62,12 @@ export default {
   layout: "empty",
   components: { Navbar, Card, BigCard, Quote },
   async asyncData() {
-    return {};
+    return {
+      projectDesc: `
+        Actualmente la educación superior acoge a un profesional en formación con diversas formas de socializar, aprender y apropiarse del conocimiento; estas,fragmentadas y enriquecidas, permitan visionar nuevos modelos de enseñanza-aprendizaje y afianzar el rol del profesor como pilar de la formación.
+        “Ascendere” evoca la consigna recuerda superarte siempre, para reafirmar el compromiso de la UTPL de contar con docentes que inspiran a sus alumnos, innovadores, vinculados con la práctica de su profesión y que se encuentren a la vanguardia de la disciplina."
+               `
+    };
   },
   mounted() {
     if (process.client) {
@@ -108,8 +121,8 @@ export default {
 :root {
   --clr1: #ddd;
   --clr2: #fff;
-  --clr3: #fff; /*00a5c4*/
-  --clr4: #fff /*fba919*/;
+  --clr3: #00a5c4; /*00a5c4*/
+  --clr4: #fba919 /*fba919*/;
   --border-radius: 7px;
   --text-radius: 50em;
 }
@@ -127,7 +140,7 @@ header {
   background-color: #f1f3f4;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
     0 1px 3px 1px rgba(60, 64, 67, 0.15);
-  @media (max-width: 728px) {
+  @media (max-width: 450px) {
     & {
       padding: 10px;
     }
@@ -136,8 +149,14 @@ header {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   grid-gap: 50px;
+  @media (max-width: 780px) {
+    & {
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
 }
 
 body {
@@ -145,6 +164,7 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
+  background-color: #fba919;
 }
 
 .wrapper {
@@ -152,6 +172,12 @@ body {
   transition: all 0.5s ease 0s;
   box-shadow: 0px 22px 54px rgba(0, 0, 0, 0.3);
   padding: 25px;
+  background-color: white;
+  @media (max-width: 450px) {
+    & {
+      padding: 10px !important;
+    }
+  }
 }
 
 body.tight .wrapper {

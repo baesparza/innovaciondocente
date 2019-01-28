@@ -1,31 +1,88 @@
 <template>
   <div class="card">
-    <img src="https://imgplaceholder.com/500x300/transparent/ddd/ion-image"
-         alt="">
+    <div class="aspect-ratio">
+      <div class="image-container">
+
+        <img :src="image"
+             :alt="title"
+             v-if="image">
+        <img src="https://imgplaceholder.com/500x300/transparent/ddd/ion-image"
+             :alt="title"
+             v-else>
+      </div>
+    </div>
     <div class="content">
-      <div class="headline">Lorem</div>
-      <div class="text">Loremsdafasdf sd asdf asfasdd sdsaas df asdf asd f asddf as df asdfdf</div>
-      <div class="button">Ver mas</div>
+      <div class="headline"
+           v-if="title">{{title}}</div>
+      <div class="text"
+           v-if="description">{{description}}</div>
+      <div class="expanded"></div>
+      <nuxt-link class="button"
+                 v-if="goto"
+                 :to="goto">Ver mas</nuxt-link>
+      <div class="button"
+           v-else-if="!goto && link">Ver mas</div>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  props: ["title", "description", "image", "goto", "link"]
+};
+</script>
+
 <style lang="scss" scoped>
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  background-color: #f1f3f4;
+}
 .card {
+  max-width: 100%;
+  max-height: 100%;
   background: white;
   border-radius: 7px;
-  display: inline-block;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
     0 1px 3px 1px rgba(60, 64, 67, 0.15);
-  img {
+  display: grid;
+    grid-template-rows: 1fr 1fr;
+  @media (max-width: 780px) {
+    & {
+      grid-template-rows: auto 1fr;
+    }
+  }
+  .image-container {
     width: 100%;
-    height: auto;
-    border-radius: 7px 7px 0px 0px;
+    height: 100%;
     background-color: #f1f3f4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      max-width: 80%;
+      max-height: 80%;
+      // decoration
+      border-radius: 7px 0px 0px 7px;
+      background-color: #f1f3f4;
+    }
   }
   .content {
     padding: 40px;
+    max-height: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 780px) {
+      & {
+        padding: 20px 15px;
+      }
+    }
     .headline {
       font-size: 24px;
       font-weight: 500;
@@ -43,5 +100,8 @@
       font-size: 15px;
     }
   }
+}
+.expanded {
+  flex-grow: 1;
 }
 </style>

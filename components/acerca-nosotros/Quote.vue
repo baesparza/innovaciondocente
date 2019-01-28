@@ -1,23 +1,35 @@
 <template>
   <section class="quote">
-    <div class="headline">Lorem</div>
-    <div class="text">asdfasdfasdfsadfsadf</div>
-    <div class="text">sad fasd fasdd f asddfasdf </div>
-    <div class="button">asd sdf fsda afsd asfd</div>
+    <div class="headline"
+         v-if="title">{{title}}</div>
+    <div class="text auto-break"
+         v-if="text">{{text}}</div>
+    <div class="button"
+         v-if="button">Ver Mas</div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ["title", "text", "button"]
+};
+</script>
+
 
  <style lang="scss" scoped>
 section {
   max-width: 800px;
   margin: 20px auto;
-  padding: 100px 0;
+  padding: 70px 0 0 0;
+  @media (max-width: 450px) {
+    & {
+      padding: 20px 0 0 0;
+    }
+  }
 }
 .quote {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
+  text-align: center;
   .headline {
     font-size: 26px;
     font-weight: 500;
