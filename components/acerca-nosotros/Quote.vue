@@ -20,7 +20,7 @@ export default {
 section {
   max-width: 800px;
   margin: 20px auto;
-  padding: 70px 0 0 0;
+  padding: 30px 0 0 0;
   @media (max-width: 450px) {
     & {
       padding: 20px 0 0 0;
