@@ -21,41 +21,77 @@
           <!-- proyect type -->
           <h2>{{getProyectoType}}</h2>
           <!-- modality -->
-          <h3>
-            Modalidad {{proyecto.modality}}
-          </h3>
-          <div class="spacer"></div>
+          <div>
+            <h3>
+              Modalidad {{proyecto.modality}}
+            </h3>
+            <div class="spacer"></div>
+          </div>
+          <!-- Coordinator -->
+          <div>
+            <h4>Coordinador de la propuesta</h4>
+            <span class="data-field coordinator">{{coordinator}}</span>
+            <div class="spacer"></div>
+          </div>
+          <!-- participants -->
+          <div v-if="proyecto.participants.length > 0">
+            <h4>Docentes que participan en la propuesta </h4>
+            <ul>
+              <li v-for="(participant,i) in proyecto.participants"
+                  :key="i">{{participant.name}}</li>
+            </ul>
+          </div>
           <!-- areas -->
-          <span v-if="proyecto.area.administrativa ||proyecto.area.biologica ||proyecto.area.sociohumanistica || proyecto.area.tecnica"
-                class="areas">
-            <h3>Areas</h3>
-            <AreasChips :area='proyecto.area'
+          <div v-if="proyecto.area.administrativa ||proyecto.area.biologica ||proyecto.area.sociohumanistica || proyecto.area.tecnica"
+               class="areas">
+            <h4>Areas</h4>
+            <AreasChips class="data-field"
+                        :area='proyecto.area'
                         :queryType='proyecto.type' />
             <div class="spacer"></div>
-          </span>
+          </div>
           <!-- carreers -->
-          <span v-if="proyecto.participants.length > 0">
-            <h3>Titulaciones Participantes</h3>
+          <div v-if="proyecto.participants.length > 0">
+            <h4>Titulaciones Participantes</h4>
             <ul>
               <li v-for="(carreer, i) in getProjectCarreers"
                   :key="i">{{carreer}}</li>
             </ul>
             <div class="spacer"></div>
-          </span>
-
+          </div>
+          <!-- Period -->
+          <div v-if="proyecto.periods.length > 0">
+            <h4>Período académico de ejecución</h4>
+            <span class="data-field">
+              {{getProjectPeriods}}
+            </span>
+            <div class="spacer"></div>
+          </div>
+          <!-- strategicLine -->
+          <div v-if="proyecto.strategicLine">
+            <h4>Línea estratégica que se desarrollará en la propuesta</h4>
+            <span class="data-field">
+              {{proyecto.strategicLine}}
+            </span>
+            <div class="spacer"></div>
+          </div>
+          <!-- subject -->
+          <div v-if="proyecto.subject">
+            <h4>Asignatura </h4>
+            <span class="data-field">
+              {{proyecto.subject}}
+            </span>
+            <div class="spacer"></div>
+          </div>
           <!-- Downloadable -->
-          <span v-if="proyecto.documents.length > 0">
-            <h3>Descargables</h3>
+          <div v-if="proyecto.documents.length > 0">
+            <h4>Descargables</h4>
             <ul>
               <li v-for="(document, i) in proyecto.documents"
-                  :key="i">{{document}}</li>
+                  :key="i"><a :href="document.url"
+                   target="_blank"
+                   rel="noopener noreferrer">Descargable {{i+1}}</a></li>
             </ul>
-          </span>
-          <br>
-          <!-- Infografia -->
-          <div v-if="proyecto.infografic">
-            <ImageModal :img='proyecto.infografic' />
-            <div class="spacer"></div>
           </div>
         </div>
         <!--  -->
@@ -64,54 +100,29 @@
         <!--  -->
         <!--  -->
         <div class="col-md-8">
-          <!-- Coordinator -->
-          <h3>Coordinador de la propuesta</h3>
-          <span class="data-field">{{proyecto.coordinator}}</span>
-          <div class="spacer"></div>
-
-          <!-- Period -->
-          <span v-if="proyecto.periods.length > 0">
-            <h3>Período académico de ejecución</h3>
-            <span class="data-field">
-              {{getProjectPeriods}}
-            </span>
-          </span>
-          <div class="spacer"></div>
-
-          <!-- strategicLine -->
-          <span>
-            <h3>Línea estratégica que se desarrollará en la propuesta</h3>
-            <span class="data-field">
-              {{proyecto.strategicLine}}
-            </span>
-          </span>
-          <div class="spacer"></div>
-
-          <!-- subject -->
-          <span v-if="proyecto.subject">
-            <h3>Asignatura </h3>
-            <span class="data-field">
-              {{proyecto.subject}}
-            </span>
-          </span>
-          <div class="spacer"></div>
-
-          <!-- participants -->
-          <span v-if="proyecto.participants.length >0 ">
-            <h3>Docentes que participan en la propuesta </h3>
-            <ul>
-              <li v-for="(participant,i) in proyecto.participants"
-                  :key="i">{{participant.name}}</li>
-            </ul>
-          </span>
-          <br>
+          <!-- pdf -->
+          <div class="resp-iframe">
+            <iframe frameborder="1"
+                    scrolling="yes"
+                    :src="getPdf"
+                    v-if="getPdf"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-md-10">
+          <!-- Infografia -->
+          <ImageModal v-if="proyecto.infografic"
+                      :img='proyecto.infografic' />
 
           <!-- video -->
           <VideoModal :videoID='proyecto.videoID'
                       maxRes="true"
                       v-if="proyecto.videoID" />
         </div>
-
+        <div class="col"></div>
       </div>
     </section>
   </div>
@@ -143,6 +154,16 @@ export default {
       return this.proyecto.proyectType == "proyecto-actual"
         ? "Proyecto Actual"
         : "Buena Práctica";
+    },
+    getPdf() {
+      for (let i = 0; i < this.proyecto.documents.length; i++) {
+        let el = this.proyecto.documents[i];
+        if (el.url.includes(".pdf")) return el.url;
+      }
+      return null;
+    },
+    coordinator() {
+      return this.proyecto.coordinator.toLowerCase();
     },
     getBannerPath() {
       return "background-image: url(" + this.proyecto.img + ");";
@@ -180,8 +201,27 @@ export default {
 @import "assets/variables";
 @import "assets/header";
 $space-elements: 20px;
+.resp-iframe {
+  position: relative;
+  overflow: hidden;
+  padding-top: 100%;
+  @media (min-width: 768px) {
+    & {
+      height: 100%;
+    }
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .banner {
-  height: 40vh;
+  height: 40vmin;
   width: 100%;
   overflow: hidden;
   &-img {
@@ -208,6 +248,10 @@ h1 {
 }
 ul {
   margin-bottom: $space-elements;
+  padding-left: 15px;
+  li {
+    list-style: none;
+  }
 }
 h2 {
   font-size: 28px;
@@ -221,6 +265,9 @@ h3 {
 }
 .data-field {
   margin-left: 15px;
+}
+.coordinator {
+  text-transform: capitalize;
 }
 </style>
 

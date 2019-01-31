@@ -58,7 +58,7 @@ export default {
     canShowCanvas() {
       if (window.innerWidth > 800 && this.projectType === "proyecto-actual") {
         this.showCanvasControler = true;
-        this.showCanvas = true;
+        this.showCanvas = false;
       } else {
         this.showCanvas = false;
         this.showCanvasControler = false;

@@ -26,7 +26,7 @@ import NoticiaCard from "~/components/cards/NoticiaCard";
 import SectionHeader from "@/components/sections/SectionHeader";
 
 export default {
-  props: ['isIndex'],
+  props: ["isIndex"],
   components: { NoticiaCard, SectionHeader },
   data() {
     return { noticias: null, loading: true };
@@ -48,11 +48,6 @@ export default {
       console.log(error);
     }
     this.loading = false;
-  },
-  head() {
-    return {
-      title: "Noticias"
-    };
   }
 };
 </script>
