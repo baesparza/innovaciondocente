@@ -18,18 +18,20 @@
         <Quote :text="projectDesc" />
 
         <section class="cards">
+          <Card title="Docentes Ascenders"
+                description="Semanalmente los profesores de Modalidad Presencial, Abierta y Postrados. Presentan su propuesta de Buenas Prácticas Docentes para potenciar el uso creativo de diferentes herramientas dentro y fuera del aula"
+                :goto="{name: 'innovacion-docente-proyectos-innovacion', query:{
+              type:'proyecto-actual',
+            }}"
+                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Finovacion.png?alt=media&token=42a68471-70c1-4c30-a8f5-9dfd8a0b0bef" />
           <Card title="Programa de Formacion"
                 description="El programa de Formación agrupa un conjunto de módulos que se dictan por medio de cursos, seminarios o talleres formativos, con el objetivo de potenciar la formación del profesorado de la universidad a través del uso de metodologías y herramientas adecuadas que garanticen la adquisición de las competencias necesarias para el desarrollo de la docencia e investigación de calidad."
-                :goto="{name: 'index'}"
+                :goto="{name: 'formacion-docente-programa-formacion'}"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Fformacion.png?alt=media&token=873c00e4-f329-48e7-9e2f-19d21f965f54" />
           <Card title="Cafe Cientifico"
                 description="Cada último jueves del mes en la UTPL, expertos y profesionales en diferentes campos dialogan y problematizan sobre un tema actual de una forma diferente e informal. Su finalidad es escuchar opiniones diversas y realizar algunos postulados que contribuyan al trabajo posterior y que ayuden a fomentar inquietudes que despiertan una entretenida discusión"
-                :goto="{name: 'index'}"
+                :goto="{name: 'formacion-docente-cafe-cientifico'}"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Fliid.png?alt=media&token=29b9cb84-208d-4a3b-8d17-eaca9c840175" />
-          <Card title="Docentes Ascenders"
-                description="Semanalmente los profesores de Modalidad Presencial, Abierta y Postrados. Presentan su propuesta de Buenas Prácticas Docentes para potenciar el uso creativo de diferentes herramientas dentro y fuera del aula"
-                :goto="{name: 'index'}"
-                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Finovacion.png?alt=media&token=42a68471-70c1-4c30-a8f5-9dfd8a0b0bef" />
         </section>
 
         <section>
@@ -39,7 +41,7 @@
           <BigCard title="Página Web del Proyecto Ascendere"
                    description="Compendio de las iniciativas de innovación y formación docente de la utpl y recursos para la enseñanzas de los mejores observatorios educativos"
                    :goto="{name: 'index'}"
-                   image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2FwebPage.jpg?alt=media&token=0acdb79f-2f2b-4357-bf8f-4a5f364d7e71" />
+                   image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FUntitled-1.png?alt=media&token=e3423830-67df-4aab-9a4a-17717e18f9c7" />
         </section>
 
       </div>
@@ -134,10 +136,10 @@ export default {
 }
 
 header {
-  padding: 50px;
+  padding: 50px 90px;
   max-width: 100%;
   border-radius: var(--border-radius);
-  background-color: #f1f3f4;
+  background-color: #00a5c4;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
     0 1px 3px 1px rgba(60, 64, 67, 0.15);
   @media (max-width: 450px) {
@@ -149,9 +151,9 @@ header {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 50px;
-  @media (max-width: 780px) {
+  @media (max-width: 820px) {
     & {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -172,10 +174,11 @@ body {
   transition: all 0.5s ease 0s;
   box-shadow: 0px 22px 54px rgba(0, 0, 0, 0.3);
   padding: 25px;
+  padding-bottom: 75px;
   background-color: white;
   @media (max-width: 450px) {
     & {
-      padding: 10px !important;
+      padding: 15px !important;
     }
   }
 }
@@ -187,7 +190,7 @@ body.tight .wrapper {
 
 footer {
   width: 90%;
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0px auto;
   text-align: center;
   margin-bottom: 50px;

@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="logo">
-      <img src="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/icons%2Ficon.png?alt=media&token=fdc778de-c683-4f2c-86d1-42f1eeedbe5c"
+      <img src="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2F51378276_373904483444533_7976740831249825792_n.png?alt=media&token=e0219f2e-9688-40be-bd66-2c2990abb0a8"
            alt="icon-innova">
     </div>
     <ul>
@@ -21,7 +21,6 @@ nav {
   align-items: center;
   flex-wrap: wrap;
   .logo {
-    background: #f1f3f4;
     width: 130px;
     height: 130px;
     border-radius: 50%;
@@ -34,17 +33,22 @@ nav {
     padding: 0;
     li {
       margin: 5px;
-      padding: 5px;
-      padding: 5px 10px;
+      padding: 7px 20px;
       list-style: none;
-      background: var(--clr2);
-      border-radius: var(--text-radius);
+      background: white;
+      border-radius: 25px;
+      font-size: 18px;
+      font-weight: 500;
     }
   }
   @media (max-width: 450px) {
     & {
       flex-direction: column;
       justify-content: center;
+    }
+    ul li {
+      padding: 5px 15px;
+      font-size: 15px;
     }
   }
 }

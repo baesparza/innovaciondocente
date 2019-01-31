@@ -36,7 +36,7 @@ export default {
 .aspect-ratio {
   position: relative;
   width: 100%;
-  padding-top: 80%;
+  padding-top: 100%;
   background-color: #f1f3f4;
 }
 .card {
@@ -48,10 +48,11 @@ export default {
     0 1px 3px 1px rgba(60, 64, 67, 0.15);
   display: grid;
   margin-bottom: 30px;
-  grid-template-columns: 3fr 4fr;
-  @media (max-width: 450px) {
+  grid-template-columns: 4fr 7fr;
+  @media (max-width: 700px) {
     & {
       grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
     }
   }
   .image-container {
@@ -63,16 +64,18 @@ export default {
     height: 100%;
     top: 0;
     left: 0;
-    padding: 20px;
-    overflow: hidden;
-
+    padding: 35px 50px;
+    @media (max-width: 1000px) {
+      & {
+        padding: 15px 20px;
+      }
+    }
     img {
-      max-width: 80%;
-      max-height: 80%;
+      max-width: 100%;
+      max-height: 100%;
       // decoration
       border-radius: 7px 0px 0px 7px;
       background-color: #f1f3f4;
-      object-fit: cover;
     }
   }
   .content {

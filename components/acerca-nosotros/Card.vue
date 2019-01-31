@@ -37,6 +37,7 @@ export default {
   position: relative;
   width: 100%;
   padding-top: 100%;
+  overflow: hidden;
   background-color: #f1f3f4;
 }
 .card {
@@ -47,26 +48,31 @@ export default {
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
     0 1px 3px 1px rgba(60, 64, 67, 0.15);
   display: grid;
-    grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   @media (max-width: 780px) {
     & {
       grid-template-rows: auto 1fr;
     }
   }
   .image-container {
+    @media (max-width: 780px) {
+      & {
+        padding: 20px;
+      }
+    }
     width: 100%;
     height: 100%;
-    background-color: #f1f3f4;
     position: absolute;
     top: 0;
     left: 0;
-    padding: 20px;
+    background-color: #f1f3f4;
+    padding: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     img {
-      max-width: 80%;
-      max-height: 80%;
+      max-width: 100%;
+      max-height: 100%;
       // decoration
       border-radius: 7px 0px 0px 7px;
       background-color: #f1f3f4;
