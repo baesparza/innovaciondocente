@@ -9,10 +9,6 @@
         Postula hasta el
         <b>{{curso.postulation.date | dateTimestamp}}</b>
       </div>
-      <div class="alert alert-success"
-           v-else-if="curso.postulation.message">
-        {{curso.postulation.message}}
-      </div>
       <div class="alert alert-danger"
            v-else>
         Las postulaciones para este curso han finalizado
@@ -28,7 +24,7 @@
           <a target="_blank"
              rel="noopener"
              class="btn btn-outline-primary btn-large"
-             v-if="canPostulate"
+             v-if="canPostulate && curso.postulation.link"
              :href="curso.postulation.link">
             Postular
           </a>
@@ -46,7 +42,12 @@
         </div>
         <!--split-->
         <div class="col-md-9">
-          <p class="auto-break">{{curso.description}}</p>
+          <p class="auto-break"
+             v-if="curso.description">{{curso.description}}</p>
+          <div class="alert alert-primary"
+               v-if="curso.postulation.message">
+            {{curso.postulation.message}}
+          </div>
           <!---->
           <span v-if="curso.instructors">
             <b>Instructor:</b>
