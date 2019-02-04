@@ -20,8 +20,11 @@
       <nuxt-link class="button"
                  v-if="goto"
                  :to="goto">Ver más</nuxt-link>
-      <div class="button"
-           v-else-if="!goto && link">Ver más</div>
+      <a class="button"
+         v-else-if="!goto && link"
+         :href="link"
+         target="_blank"
+         rel="noopener noreferrer">Ver más</a>
     </div>
   </div>
 </template>
