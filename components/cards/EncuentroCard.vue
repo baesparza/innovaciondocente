@@ -106,8 +106,11 @@ export default {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        text-transform: capitalize;
-      }
+        text-transform: lowercase;
+        &::first-letter {
+          text-transform: capitalize;
+        }
+      } 
       .date {
         font-size: 15px;
       }

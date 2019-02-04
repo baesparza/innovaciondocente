@@ -108,6 +108,10 @@ export default {
       text-overflow: ellipsis;
       white-space: nowrap;
       text-align: justify;
+      text-transform: lowercase;
+        &::first-letter {
+          text-transform: capitalize;
+        }
     }
     &-date {
       font-size: 15px;
