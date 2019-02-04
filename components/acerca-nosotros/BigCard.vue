@@ -18,9 +18,9 @@
            v-if="description">{{description}}</div>
       <nuxt-link class="button"
                  v-if="goto"
-                 :to="goto">Ver mas</nuxt-link>
+                 :to="goto">Ver más</nuxt-link>
       <div class="button"
-           v-else-if="!goto && link">Ver mas</div>
+           v-else-if="!goto && link">Ver más</div>
     </div>
   </div>
 </template>

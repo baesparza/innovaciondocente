@@ -5,7 +5,7 @@
     <div class="text auto-break"
          v-if="text">{{text}}</div>
     <div class="button"
-         v-if="button">Ver Mas</div>
+         v-if="button">Ver más</div>
   </section>
 </template>
 

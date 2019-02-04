@@ -73,6 +73,7 @@ export default {
       canIncribe
     };
   },
+
   head() {
     return {
       title: this.encuentro

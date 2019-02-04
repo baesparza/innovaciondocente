@@ -3,7 +3,7 @@
     <SectionHeader v-if="isIndex"
                    title="Últimas Noticias"
                    goto='observatorio-edutendencias-noticias'
-                   name='Ver mas Noticas' />
+                   name='Ver más Noticas' />
     <div v-if="loading">
       <span>Cargando...</span>
     </div>

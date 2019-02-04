@@ -2,7 +2,7 @@
   <div>
     <SectionHeader title="Últimos InnovaTips"
                    goto='formacion-docente-programa-formacion-InnovaTips'
-                   name='Ver mas InnovaTips' />
+                   name='Ver más InnovaTips' />
     <p class="auto-break header-description"
        v-if="description">{{description}}</p>
     <div v-if="loading">

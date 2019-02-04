@@ -1,6 +1,6 @@
 <template>
   <nuxt-link class="card"
-             :to="{name: 'formacion-docente-cafe-cientifico-id', params: {id: encuentro.id}}"
+             :to="goto"
              tag="div">
     <div class="stack">
       <!-- img -->
@@ -24,6 +24,16 @@ export default {
   computed: {
     getImage() {
       return `background-image: url(${this.encuentro.img} );`;
+    },
+    goto() {
+      if (this.encuentro.postulations)
+        return {
+          name: "formacion-docente-cafe-cientifico-id",
+          params: { id: this.encuentro.id }
+        };
+      return {
+        name: "formacion-docente-cafe-cientifico"
+      };
     }
   }
 };

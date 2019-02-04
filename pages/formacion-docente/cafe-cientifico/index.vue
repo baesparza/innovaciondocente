@@ -7,8 +7,9 @@
         <img :src="ultimoEncuentro.img"
              alt="img-background">
       </div>
-      <div class="header-content">
-        <nuxt-link :to="{name: 'formacion-docente-cafe-cientifico-id', params: {id: ultimoEncuentro.id}}"
+      <div class="header-content"
+           @click="click">
+        <nuxt-link :to="goto"
                    tag="div"
                    class="container"
                    style="cursor:pointer">
@@ -108,12 +109,26 @@ export default {
         left: 330,
         behavior: "smooth"
       });
+    },
+    click() {
+      if (!this.encuentros[0].postulations)
+        alert("Este encuentro aun no esta disponible");
     }
   },
   computed: {
     ultimoEncuentro() {
       if (!this.encuentros) return null;
       return this.encuentros[0];
+    },
+    goto() {
+      if (this.encuentros[0].postulations)
+        return {
+          name: "formacion-docente-cafe-cientifico-id",
+          params: { id: this.encuentros[0].id }
+        };
+      return {
+        name: "formacion-docente-cafe-cientifico"
+      };
     }
   },
   components: { SuscripcionSection, EncuentroCard },
@@ -166,8 +181,8 @@ export default {
   background-color: $color-primary;
 
   z-index: -2;
-  -webkit-filter: blur(20px);
-  filter: blur(20px);
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
   overflow: hidden;
   img {
     object-fit: cover;
