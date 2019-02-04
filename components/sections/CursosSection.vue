@@ -45,7 +45,6 @@ export default {
   async mounted() {
     try {
       let cursosSnap = null;
-      if (this.isIndex) {
         const temp = new Date();
         const startDate = new Date(temp.getFullYear(), temp.getMonth());
         cursosSnap = await AFirestore.collection(
@@ -54,14 +53,14 @@ export default {
           .where("date", ">=", startDate)
           .orderBy("date", "desc")
           .get();
-      } else {
-        cursosSnap = await AFirestore.collection(
-          "formacion-docente/programa-formacion/cursos"
-        )
-          .orderBy("date", "desc")
-          .limit(4)
-          .get();
-      }
+      // } else {
+      //   cursosSnap = await AFirestore.collection(
+      //     "formacion-docente/programa-formacion/cursos"
+      //   )
+      //     .orderBy("date", "desc")
+      //     .limit(4)
+      //     .get();
+      // }
       if (!cursosSnap.empty)
         this.cursos = cursosSnap.docs.map(doc =>
           Object.assign({ id: doc.id }, doc.data())

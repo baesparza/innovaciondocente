@@ -18,6 +18,17 @@ Vue.filter('dateTimestamp', (val) => {
       }
     );
 });
+Vue.filter('smallDateTimestamp', (val) => {
+  return new Date(val.seconds * 1000) // unix date
+    .toLocaleDateString(
+      'es-ES', // lang
+      {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+      }
+    );
+});
 
 Vue.filter('date', val => {
   let parts = val.split('-');

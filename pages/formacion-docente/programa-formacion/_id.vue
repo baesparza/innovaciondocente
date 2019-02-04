@@ -61,8 +61,12 @@
           </span>
           <!---->
           <p>
-            <b>Fecha:</b>
+            <b>Fecha Inicio:</b>
             {{curso.date | dateTimestamp}}
+          </p>
+          <p v-if="curso.endDate">
+            <b>Fecha Finalización:</b>
+            {{curso.endDate | dateTimestamp}}
           </p>
           <!---->
           <span v-if="curso.duration">

@@ -8,7 +8,12 @@
     <h4 class="card-title">
       {{curso.name |slice(0,50)}}
     </h4>
-    <span class="card-date">
+    <span class="card-date"
+          v-if="curso.endDate">
+      {{curso.date | smallDateTimestamp}} hasta {{curso.endDate | smallDateTimestamp}}
+    </span>
+    <span class="card-date"
+          v-else>
       {{curso.date | dateTimestamp}}
     </span>
   </nuxt-link>
