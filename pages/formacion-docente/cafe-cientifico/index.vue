@@ -89,6 +89,7 @@ export default {
       "formacion-docente/cafe-cientifico/encuentros"
     )
       .orderBy("date", "desc")
+      .limit(6)
       .get();
     const encuentros = querySnapshot.docs.map(doc =>
       Object.assign({ id: doc.id }, doc.data())
