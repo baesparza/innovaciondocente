@@ -43,9 +43,9 @@ export default {
       if (txt.includes("identidad"))
         return "background-image: linear-gradient(to bottom right,#d6332e,#f0706f)";
       if (txt.includes("pedagogia"))
-        return "background-image: linear-gradient(to bottom right,#1d9e97,#41b8c0)";
+        return "background-image: linear-gradient(to bottom right,#07b5d6,#00a5c4)";
       if (txt.includes("investigacion"))
-        return "background-image: linear-gradient(to bottom right,#f36a22,#f89a1c)";
+        return "background-image: linear-gradient(to bottom right,#ffb31b,#ffaa00)";
       if (txt.includes("tic"))
         return "background-image: linear-gradient(to bottom right,#1291c6,#44b0de)";
       return "background-image: linear-gradient(to bottom right,#364d9d,#1ea3de)";
