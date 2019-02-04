@@ -1,4 +1,5 @@
 <template>
+
   <div class="card">
     <div class="aspect-ratio">
       <div class="image-container">
@@ -44,8 +45,8 @@ export default {
   background-color: #f1f3f4;
 }
 .card {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   background: white;
   border-radius: 7px;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
@@ -83,7 +84,7 @@ export default {
   }
   .content {
     padding: 40px;
-    max-height: 100%;
+    height: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;

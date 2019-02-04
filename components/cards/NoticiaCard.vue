@@ -36,8 +36,8 @@ export default {
 @import "assets/variables";
 
 .card {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   background-color: #d4d4d472;
   border-radius: 5px;
   cursor: pointer;

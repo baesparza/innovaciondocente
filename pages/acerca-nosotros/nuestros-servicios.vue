@@ -18,17 +18,18 @@
         <Quote :text="projectDesc" />
 
         <section class="cards">
+          <Card title="Master Class Vitamina I"
+                description="Master Class Vitamina I, son espacios en el que varios docentes compartirán sus experiencias y conocimientos sobre metodologías docentes que están aplicando en el aprendizaje de nuestros estudiantes. Conoce nuestra oferta."
+                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(4).png?alt=media&token=03d0e8a0-3365-44fc-886e-dc91f1af1573" />
           <Card title="Nuestro debate estudiantil"
                 description="Espacio de diálogo dónde se problematizan temáticas diversas o se abordan temas de actualidad, y se desafía a estudiantes universitarios y de bachillerato a que propongan soluciones creativas, bajo la guía de docentes de la UTPL."
                 link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Nuestro.png?alt=media&token=acbde1b1-d84a-463b-bb9b-ca8988b6ff23"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(2).png?alt=media&token=72d8d189-6542-49b3-9362-0028c96f6fdb" />
           <Card title="Talleres académicos ¡Potenciate UTPL!"
-          link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Talleres.png?alt=media&token=e8caf314-9c7e-43de-bc24-d65c1505ff5b"
+                link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Talleres.png?alt=media&token=e8caf314-9c7e-43de-bc24-d65c1505ff5b"
                 description="Talleres prácticos en los que estudiantes de bachillerato a través de un aprendizaje basado en retos, se involucran activamente en problemáticas reales acordes a los perfiles profesionales de las diferentes carreras de la UTPL, bajo la guía de docentes y estudiantes universitarios. Estos espacios se convierten además en un medio para orientar a los participantes en sus intereses vocacionales y futuro profesional."
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(3).png?alt=media&token=e39fb1db-ef66-4162-b77a-104c6e587410" />
-          <Card title="Master Class Vitamina I"
-                description="MasterClass VitaminaI, son espacios en el que varios docentes compartirán sus experiencias y conocimientos sobre metodologías docentes que están aplicando en el aprendizaje de nuestros estudiantes. Conoce nuestra oferta."
-                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(4).png?alt=media&token=03d0e8a0-3365-44fc-886e-dc91f1af1573" />
+
           <Card title="Docentes Ascenders"
                 description="Semanalmente los profesores de Modalidad Presencial, Abierta y Postrados. Presentan su propuesta de Buenas Prácticas Docentes para potenciar el uso creativo de diferentes herramientas dentro y fuera del aula"
                 :goto="{name: 'innovacion-docente-proyectos-innovacion', query:{

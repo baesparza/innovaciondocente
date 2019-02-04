@@ -53,6 +53,8 @@ export default {
 
 .card {
   // card style
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   background-color: #dfdfdf72;
   border-radius: 5px;
