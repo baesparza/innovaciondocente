@@ -9,8 +9,11 @@
               <li class="scroll-bar-container-tile"
                   v-for="(section,id) in sections"
                   :key="id">
-                <a :href="'#'+id"
-                   :class="{'active': section.active}">{{section.name}} <i class="fas fa-angle-right"></i></a>
+                <nuxt-link tag='a'
+                           :class="{'active': section.active}"
+                           :to="{name: section.goto}">
+                  {{section.name}} <i class="fas fa-angle-right"></i>
+                </nuxt-link>
               </li>
             </ul>
           </div>
@@ -63,19 +66,23 @@ export default {
       sections: {
         cursos: {
           name: "Cursos",
-          active: false
+          active: false,
+          goto: "formacion-docente-programa-formacion-cursos"
         },
         encuentros: {
           name: "Encuentros",
-          active: false
+          active: false,
+          goto: "formacion-docente-cafe-cientifico"
         },
         InnovaTips: {
           name: "InnovaTips",
-          active: false
+          active: false,
+          goto: "formacion-docente-programa-formacion-InnovaTips"
         },
         noticias: {
           name: "Noticias",
-          active: false
+          active: false,
+          goto: "observatorio-edutendencias-noticias"
         }
       }
     };
@@ -136,7 +143,7 @@ div[class^="col-"] {
   color: $color-text-primary;
   z-index: 100;
   background-image: linear-gradient(to bottom, #0d426b, #0d426b, #ff0266);
-    border-bottom-right-radius: 50px;
+  border-bottom-right-radius: 50px;
   &-container {
     padding: 80px 0;
     position: sticky;

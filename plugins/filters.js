@@ -23,8 +23,8 @@ Vue.filter('smallDateTimestamp', (val) => {
     .toLocaleDateString(
       'es-ES', // lang
       {
-        weekday: 'short',
-        month: 'short',
+        // weekday: 'long',
+        month: 'long',
         day: 'numeric'
       }
     );

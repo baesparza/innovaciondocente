@@ -65,10 +65,9 @@ export default {
   components: { Navbar, Card, BigCard, Quote },
   async asyncData() {
     return {
-      projectDesc: `
-        Actualmente la educación superior acoge a un profesional en formación con diversas formas de socializar, aprender y apropiarse del conocimiento; estas,fragmentadas y enriquecidas, permitan visionar nuevos modelos de enseñanza-aprendizaje y afianzar el rol del profesor como pilar de la formación.
-        “Ascendere” evoca la consigna recuerda superarte siempre, para reafirmar el compromiso de la UTPL de contar con docentes que inspiran a sus alumnos, innovadores, vinculados con la práctica de su profesión y que se encuentren a la vanguardia de la disciplina."
-               `
+      projectDesc: `“Ascendere” evoca la consigna recuerda superarte siempre, para reafirmar el compromiso de la UTPL de contar con docentes que inspiran a sus alumnos, innovadores, vinculados con la práctica de su profesión y que se encuentren a la vanguardia de la disciplina.
+      El Proyecto Ascendere nació con el propósito de trabajar y agrupar aquellas iniciativas que potencien las competencias de laos docente a través de la innovación académica ya la investigación en nuevas metodologías de educación y uso de las TIC.
+      `
     };
   },
   mounted() {
@@ -242,5 +241,8 @@ footer {
   -moz-animation: bounce 2s infinite;
   -webkit-animation: bounce 2s infinite;
   animation: bounce 2s infinite;
+}
+section {
+  display: block;
 }
 </style>

@@ -10,7 +10,7 @@
     </h4>
     <span class="card-date"
           v-if="curso.endDate">
-      {{curso.date | smallDateTimestamp}} hasta {{curso.endDate | smallDateTimestamp}}
+      {{curso.date | smallDateTimestamp}} hasta el {{curso.endDate | smallDateTimestamp}}
     </span>
     <span class="card-date"
           v-else>
