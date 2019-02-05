@@ -11,7 +11,7 @@
          target="_blank"
          v-if="programFormacionDocente"
          :href="programFormacionDocente">
-        Descarga el Programa de Formación Docente
+        Descarga el Programa de Formación Docente | {{getDate}}
       </a>
     </p>
     <div v-if="loading">
@@ -40,7 +40,7 @@ export default {
   props: ["description", "isIndex", "programFormacionDocente"],
   components: { CursoCard, SectionHeader },
   data() {
-    return { cursos: null, loading: true };
+    return { cursos: null, loading: true};
   },
   async mounted() {
     try {
@@ -71,13 +71,16 @@ export default {
     this.loading = false;
   },
   computed: {
+    getDate() {
+return new Date().getFullYear();
+    },
     getTitle() {
-      return this.isIndex ? "Próximos Cursos" : "Últimos Cursos";
+      return this.isIndex ? "Próximos Cursos" : "Cursos Actuales";
     },
     getErrorMessage() {
       return this.isIndex
         ? "No hay próximos cursos."
-        : "No se pudieron cargar los últimos cursos.";
+        : "No se pudieron cargar los cursos Actuales.";
     }
   }
 };

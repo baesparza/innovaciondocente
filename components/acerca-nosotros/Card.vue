@@ -25,7 +25,7 @@
          v-else-if="!goto && link"
          :href="link"
          target="_blank"
-         rel="noopener noreferrer">Ver más</a>
+         rel="noopener noreferrer">Conoce nuestra oferta</a>
     </div>
   </div>
 </template>

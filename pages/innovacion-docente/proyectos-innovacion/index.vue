@@ -4,25 +4,8 @@
       <h1>{{getTitle}}</h1>
     </header>
     <section class="container">
-      <div v-if="showCanvasControler"
-           class="canvas-controler">
-        <div>
-          <span>Vista</span>
-        </div>
-        <div @click="activateCanvas"
-             class="view-btn"
-             :class="{ 'active': showCanvas}">
-          <i class="fas fa-dot-circle"></i>
-        </div>
-        <div @click="activateGrid"
-             class="view-btn"
-             :class="{ 'active': !showCanvas}">
-          <i class="fas fa-th"></i>
-        </div>
-      </div>
-      <ProjectsCanvasSection v-if="showCanvas" />
-      <ProjectsSection v-else
-                       :projectType="projectType"
+      <ProjectsCanvasSection v-if="canShowCanvas" />
+      <ProjectsSection :projectType="projectType"
                        :projectArea="projectArea" />
     </section>
   </div>
@@ -44,38 +27,19 @@ export default {
     const query = this.$route.query;
     return {
       projectType: query.type ? query.type : "proyecto-actual",
-      projectArea: query.area,
+      projectArea: query.area ? query.area : null,
       showCanvas: null,
       showCanvasControler: null
     };
   },
-  methods: {
-    init() {
-      this.canShowCanvas();
-      if (this.showCanvasControler)
-        window.addEventListener("resize", () => this.canShowCanvas());
-    },
-    canShowCanvas() {
-      if (window.innerWidth > 800 && this.projectType === "proyecto-actual") {
-        this.showCanvasControler = true;
-        this.showCanvas = false;
-      } else {
-        this.showCanvas = false;
-        this.showCanvasControler = false;
-      }
-    },
-    activateGrid() {
-      if (this.showCanvas) {
-        this.showCanvas = false;
-      }
-    },
-    activateCanvas() {
-      if (!this.showCanvas) {
-        this.showCanvas = true;
-      }
-    }
-  },
   computed: {
+    canShowCanvas() {
+      return (
+        window.innerWidth > 800 &&
+        this.projectType === "proyecto-actual" &&
+        this.projectArea === null
+      );
+    },
     getTitle() {
       if (this.projectType && this.projectType === "buena-practica")
         return "Buenas Prácticas";
@@ -84,31 +48,12 @@ export default {
       return "Proyectos Innovación";
     }
   },
-  mounted() {
-    this.init();
-  }
+  watchQuery: ["type", "area"]
 };
 </script>
 
 
 <style lang="scss" scoped>
 @import "assets/header";
-@import "assets/variables";
-
-.canvas-controler {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: baseline;
-  .view-btn {
-    margin-left: 10px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-}
-.active {
-  color: $color-primary;
-}
 </style>
 

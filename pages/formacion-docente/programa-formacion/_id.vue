@@ -44,10 +44,8 @@
         <div class="col-md-9">
           <p class="auto-break"
              v-if="curso.description">{{curso.description}}</p>
-          <div class="alert alert-primary"
-               v-if="curso.postulation.message">
-            {{curso.postulation.message}}
-          </div>
+          <div class="alert alert-primary auto-break"
+               v-if="curso.postulation.message">{{curso.postulation.message}}</div>
           <!---->
           <span v-if="curso.instructors">
             <b>Instructor:</b>

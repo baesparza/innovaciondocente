@@ -36,7 +36,7 @@
               type:'proyecto-actual',
             }}"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Finovacion.png?alt=media&token=42a68471-70c1-4c30-a8f5-9dfd8a0b0bef" />
-          <Card title="Programa de Formacion"
+          <Card title="Programa de Formación"
                 description="El programa de Formación agrupa un conjunto de módulos que se dictan por medio de cursos, seminarios o talleres formativos, con el objetivo de potenciar la formación del profesorado de la universidad a través del uso de metodologías y herramientas adecuadas que garanticen la adquisición de las competencias necesarias para el desarrollo de la docencia e investigación de calidad."
                 :goto="{name: 'formacion-docente-programa-formacion'}"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Fformacion.png?alt=media&token=873c00e4-f329-48e7-9e2f-19d21f965f54" />
@@ -77,9 +77,9 @@ export default {
   components: { Navbar, Card, BigCard, Quote },
   async asyncData() {
     return {
-      projectDesc: `“Ascendere” evoca la consigna recuerda superarte siempre, para reafirmar el compromiso de la UTPL de contar con docentes que inspiran a sus alumnos, innovadores, vinculados con la práctica de su profesión y que se encuentren a la vanguardia de la disciplina.
-      El Proyecto Ascendere nació con el propósito de trabajar y agrupar aquellas iniciativas que potencien las competencias de laos docente a través de la innovación académica ya la investigación en nuevas metodologías de educación y uso de las TIC.
-      `
+      projectDesc: `ASCENDERE evoca la consigna “Recuerda Superarte Siempre”, para reafirmar el compromiso de la UTPL de contar con docentes que inspiran a sus alumnos, innovadores, vinculados con la práctica de su profesión y que se encuentren a la vanguardia de la disciplina.
+      
+      El Proyecto Ascendere nació con el propósito de trabajar y agrupar aquellas iniciativas que potencien las competencias de los docentes a través de la innovación académica e investigación sobre las nuevas metodologías de educación y uso de las TIC. `
     };
   },
   mounted() {

@@ -5,9 +5,9 @@
            alt="icon-innova">
     </div>
     <ul>
-      <li>Innovación</li>
-      <li>Formación</li>
-      <li>Evaluación</li>
+      <nuxt-link tag='li' :to="{name: 'index'}">Innovación</nuxt-link>
+      <nuxt-link tag='li' :to="{name: 'index'}">Formación</nuxt-link>
+      <nuxt-link tag='li' :to="{name: 'index'}">Evaluación</nuxt-link>
     </ul>
   </nav>
 </template>
@@ -39,6 +39,7 @@ nav {
       border-radius: 25px;
       font-size: 18px;
       font-weight: 500;
+      cursor: pointer;
     }
   }
   @media (max-width: 450px) {
