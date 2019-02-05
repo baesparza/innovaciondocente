@@ -43,7 +43,7 @@
           <Card title="Cafe Científico"
                 description="Cada último jueves del mes en la UTPL, expertos y profesionales en diferentes campos dialogan y problematizan sobre un tema actual de una forma diferente e informal. Su finalidad es escuchar opiniones diversas y realizar algunos postulados que contribuyan al trabajo posterior y que ayuden a fomentar inquietudes que despiertan una entretenida discusión"
                 :goto="{name: 'formacion-docente-cafe-cientifico'}"
-                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Fliid.png?alt=media&token=29b9cb84-208d-4a3b-8d17-eaca9c840175" />
+                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Farte_jarro_cafe_cientifico_enero_2018.png?alt=media&token=8a251586-c55e-4407-892d-b8a03e0d3405" />
         </section>
 
         <section>

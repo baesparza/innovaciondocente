@@ -90,7 +90,7 @@ export default {
   }
   &-details {
     height: 100%;
-    width: 100%;
+    max-width: 100%;
     padding: 15px;
     overflow: hidden;
 
