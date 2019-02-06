@@ -4,6 +4,12 @@
     <section class="container">
 
       <h1>Proyecto Ayudante de Cátedra</h1>
+      <a target="_blank"
+         rel="noopener noreferrer"
+         href="https://www.e-encuesta.com/r/fvmOZm3ZXxO4EvKxZOgQDA/ayudantes_c%E1tedra_abril-agosto_2019">
+        <img src="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/innovacion-docente%2Fayudante%20de%20catedra%2Fcarrusel.png?alt=media&token=2719920a-67a6-4927-aa16-178b2c5192fb"
+             alt="Ayudante de Cátedra Banner">
+      </a>
       <hr>
       <p>La necesidad de apoyo al profesorado en la UTPL conlleva a que los estudiantes de pregrado
         puedan realizar tareas de soporte a la docencia en calidad de Ayudantes de Cátedra. Con
@@ -73,47 +79,6 @@
         experiencia positiva y enriquecedora, siendo su presencia un aporte necesario al progreso
         de la academia.</p>
       <hr>
-      <h4>Titulaciones involucradas</h4>
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6">
-          <h5>Área Administrativa</h5>
-          <ul>
-            <li>Administración de Empresas</li>
-            <li>Administración en Banca y Finanzas</li>
-            <li>Contabilidad y Auditoría</li>
-            <li>Economía</li>
-            <li>Hotelería y Turismo</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5>Área Socio humanística</h5>
-          <ul>
-            <li>Derecho</li>
-            <li>Psicología</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5>Área Biológica y Biomédica</h5>
-          <ul>
-            <li>Bioquímica y Farmacia</li>
-            <li>Enfermería</li>
-            <li>Gestión Ambiental</li>
-            <li>Ingeniería Agropecuaria</li>
-            <li>Ingeniería en Alimentos</li>
-            <li>Ingeniería Industrial</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5>Área Técnica</h5>
-          <ul>
-            <li>Electrónica y Telecomunicaciones</li>
-            <li>Geología y Minas</li>
-            <li>Ingeniería Civil</li>
-          </ul>
-        </div>
-      </div>
-      <hr>
       <h4>¿Quieres fortalecer el vinculo docente - estudiante?</h4>
       <div class="row">
         <div class="col-lg-4 col-md-6">
@@ -129,7 +94,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <a target="_blank"
-             href="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/innovacion-docente%2Fayudante%20de%20catedra%2FProyecto%20ayudante%20de%20ca%CC%81tedra%20abril-agosto%202018.pdf?alt=media&token=31049ddd-10c1-458a-979a-3ebedb8c9969">
+             href="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/innovacion-docente%2Fayudante%20de%20catedra%2FProyecto%20ayudante%20de%20c%C3%A1tedra%20abril%20-agosto%202019.pdf?alt=media&token=c746f514-7239-42bd-9469-9c177fca7248">
             <i class="fas fa-file-pdf"> </i> Conoce el proyecto completo
           </a>
         </div>
