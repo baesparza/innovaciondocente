@@ -1,7 +1,7 @@
 <template>
 
   <body ref="body">
-
+    
     <div class="wrapper "
          ref="wrap"
          v-on:click="presentationMode">
@@ -19,7 +19,7 @@
 
         <section class="cards">
           <Card title="Master Class Vitamina I"
-                description="Master Class Vitamina I, son espacios en el que varios docentes compartirán sus experiencias y conocimientos sobre metodologías docentes que están aplicando en el aprendizaje de nuestros estudiantes. Conoce nuestra oferta."
+                description="Master Class Vitamina I, es un espacio en el que varios docentes compartirán sus experiencias y conocimientos sobre metodologías docentes que están aplicando en el aprendizaje de nuestros estudiantes. Conoce nuestra oferta."
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(4).png?alt=media&token=03d0e8a0-3365-44fc-886e-dc91f1af1573" />
           <Card title="Nuestro debate estudiantil"
                 description="Espacio de diálogo dónde se problematizan temáticas diversas o se abordan temas de actualidad, y se desafía a estudiantes universitarios y de bachillerato a que propongan soluciones creativas, bajo la guía de docentes de la UTPL."

@@ -86,7 +86,8 @@
              class="form-check-input"
              name="whatsapp">
       <label class="form-check-label"
-             for="whatsapp">¿Desearías que la información de los eventos de formación e innovación docente te lleguen por medio
+             for="whatsapp">¿Desearías que la información de los eventos de formación e innovación
+        docente te lleguen por medio
         de WhatsApp?</label>
     </div>
     <div class="form-row">
@@ -108,6 +109,8 @@
 
 <script>
 import axios from "axios";
+import { AFirestore } from "~/plugins/firebase.js";
+
 export default {
   asyncData({ query }) {
     return { key: query.id };
@@ -138,13 +141,12 @@ export default {
         .then(x => {
           if (x) {
             // only if valid
-            axios
-              .post(
-                `https://innovaciondocente-utpl.firebaseio.com/formacion-docente/cafe-cientifico/encuentros/${
-                  this.key
-                }/inscripciones.json`,
-                this.forma
-              )
+            AFirestore.collection("formacion-docente")
+              .doc("cafe-cientifico")
+              .collection("encuentros")
+              .doc(this.key)
+              .collection("inscripciones")
+              .add(this.forma)
               .then(function(response) {
                 alert("Completado");
                 window.$nuxt.$router.go(-1);
@@ -158,7 +160,6 @@ export default {
         .catch(e => {
           console.log(e);
         });
-      console.log(this.forma);
     }
   }
 };

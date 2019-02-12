@@ -78,6 +78,11 @@
       <p>Los estudiantes que actualmente se encuentran siendo parte de este proyecto han tenido una
         experiencia positiva y enriquecedora, siendo su presencia un aporte necesario al progreso
         de la academia.</p>
+      <p><a href="https://padlet.com/innovaciondocenteutpl/3rqwed7bbaxs"
+           target="_blank"
+           rel="noopener noreferrer">
+          Ayudantes de Cátedra octubre 2018 febrero 2019
+        </a></p>
       <hr>
       <h4>¿Quieres fortalecer el vinculo docente - estudiante?</h4>
       <div class="row">
@@ -99,6 +104,7 @@
           </a>
         </div>
       </div>
+
     </section>
   </div>
 </template>
