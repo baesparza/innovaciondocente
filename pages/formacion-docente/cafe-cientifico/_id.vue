@@ -4,6 +4,24 @@
       <header class="parallax"
               :style="'background-image: url('+encuentro.img+');'"></header>
       <section class="container">
+        <!-- notification -->
+        <div class="alert alert-success"
+             v-if="canIncribe">
+          <i class="fas fa-calendar-alt"></i>
+          Inscríbete hasta el
+          <b>{{encuentro.postulations | dateTimestamp}}</b>
+        </div>
+        <div class="alert alert-danger"
+             v-else>
+          Las inscripciones para este Encuentro han finalizado
+        </div>
+        <div v-if="encuentro.banner">
+          <img :src="encuentro.banner"
+               alt="Banner Encuentro">
+          <br>
+          <br>
+        </div>
+        <!-- encuentro -->
         <h1>{{encuentro.name}}</h1>
         <small>
           <i class="fas fa-calendar-alt"></i> {{encuentro.date | dateTimestamp}}</small>
@@ -22,6 +40,9 @@
             </div>
           </div>
         </div>
+        <span v-if="encuentro.participation">
+          <b>Participa: </b>{{encuentro.participation}}
+        </span>
         <div class="row">
           <div :class="[{'col-6': canIncribe}, {'col-12': !canIncribe}]">
             <button @click="$router.go(-1)"
@@ -94,6 +115,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "assets/variables";
 @import "assets/parallax";
+@import "assets/alert";
 </style>
