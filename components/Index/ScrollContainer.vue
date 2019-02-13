@@ -9,11 +9,18 @@
               <li class="scroll-bar-container-tile"
                   v-for="(section,id) in sections"
                   :key="id">
-                <nuxt-link tag='a'
+                <nuxt-link v-if="section.goto"
+                           tag='a'
                            :class="{'active': section.active}"
                            :to="{name: section.goto}">
                   {{section.name}} <i class="fas fa-angle-right"></i>
                 </nuxt-link>
+                <a v-else-if="section.link"
+                   :href="section.link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  {{section.name}} <i class="fas fa-angle-right"></i>
+                </a>
               </li>
             </ul>
           </div>
@@ -83,6 +90,10 @@ export default {
           name: "Noticias",
           active: false,
           goto: "observatorio-edutendencias-noticias"
+        },
+        vitaminaI: {
+          name: "Vitamina i",
+          link: "https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FResumen%20del%20programa%20de%20formacioe%CC%8Cn%202019%20Microtalleres%202019.pdf?alt=media&token=e5ce6ae7-d0b4-4c6f-ad8a-23d88a6c37c9"
         }
       }
     };
