@@ -52,6 +52,9 @@
             <nuxt-link :to="{name: 'observatorio-edutendencias-tips-innovacion'}">Tips de
               Innovacion</nuxt-link>
             <nuxt-link :to="{name: 'observatorio-edutendencias-noticias'}">Noticias</nuxt-link>
+            <a target="_blank"
+               rel="noopener"
+               href="https://www.youtube.com/channel/UCzRd2Y87-NJnVliV8B6e_Xg">Docentes Ascenderes</a>
           </div>
         </div>
       </div>
