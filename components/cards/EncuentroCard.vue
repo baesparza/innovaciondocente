@@ -11,7 +11,7 @@
       <!-- content -->
       <div class="content">
         <h3>{{encuentro.name}}</h3>
-        <span class="date">{{encuentro.created | dateTimestamp}}</span>
+        <span class="date">{{encuentro.date | dateTimestamp}}</span>
 
       </div>
     </div>
@@ -118,4 +118,3 @@ export default {
   }
 }
 </style>
-

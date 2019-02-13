@@ -8,6 +8,11 @@
       </nuxt-link>
       <div class="nav">
         <div class="dropdown">
+          <nuxt-link :to="{name: 'acerca-nosotros-nuestros-servicios'}">
+            Servicios
+          </nuxt-link>
+        </div>
+        <div class="dropdown">
           <button class="dropbtn">
             Innovación Docente
             <i class="fa fa-caret-down"></i>

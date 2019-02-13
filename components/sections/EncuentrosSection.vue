@@ -8,11 +8,10 @@
     </div>
     <div class="grid"
          v-else-if="encuentros && encuentros.length > 0">
-      <div class="aspect-ratio">
-
+      <div class="aspect-ratio"
+           v-for="encuentro in encuentros"
+           :key="encuentro.id">
         <EncuentroCard :encuentro="encuentro"
-                       v-for="encuentro in encuentros"
-                       :key="encuentro.id"
                        class="card" />
       </div>
     </div>
