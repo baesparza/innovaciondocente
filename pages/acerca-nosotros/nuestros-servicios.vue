@@ -20,7 +20,8 @@
         <section class="cards">
           <Card title="Master Class Vitamina I"
                 description="Master Class Vitamina I, son espacios en el que varios docentes compartirán sus experiencias y conocimientos sobre metodologías docentes que están aplicando en el aprendizaje de nuestros estudiantes. Conoce nuestra oferta."
-                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(4).png?alt=media&token=03d0e8a0-3365-44fc-886e-dc91f1af1573" />
+                image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(4).png?alt=media&token=03d0e8a0-3365-44fc-886e-dc91f1af1573"
+                link='https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FResumen%20del%20programa%20de%20formacioe%CC%8Cn%202019%20Microtalleres%202019.pdf?alt=media&token=e5ce6ae7-d0b4-4c6f-ad8a-23d88a6c37c9'/>
           <Card title="Nuestro debate estudiantil"
                 description="Espacio de diálogo dónde se problematizan temáticas diversas o se abordan temas de actualidad, y se desafía a estudiantes universitarios y de bachillerato a que propongan soluciones creativas, bajo la guía de docentes de la UTPL."
                 link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Nuestro.png?alt=media&token=acbde1b1-d84a-463b-bb9b-ca8988b6ff23"
@@ -78,7 +79,7 @@ export default {
   async asyncData() {
     return {
       projectDesc: `ASCENDERE evoca la consigna “Recuerda Superarte Siempre”, para reafirmar el compromiso de la UTPL de contar con docentes que inspiran a sus alumnos, innovadores, vinculados con la práctica de su profesión y que se encuentren a la vanguardia de la disciplina.
-      
+
       El Proyecto Ascendere nació con el propósito de trabajar y agrupar aquellas iniciativas que potencien las competencias de los docentes a través de la innovación académica e investigación sobre las nuevas metodologías de educación y uso de las TIC. `
     };
   },
