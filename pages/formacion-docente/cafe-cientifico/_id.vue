@@ -1,10 +1,10 @@
 <template>
   <div>
     <div v-if="encuentro">
-      <header class="parallax"
-              :style="'background-image: url('+encuentro.img+');'"></header>
-      <section class="container">
+      <header>
         <h1>{{encuentro.name}}</h1>
+      </header>
+      <section class="container">
         <small>
           <i class="fas fa-calendar-alt"></i> {{encuentro.date | dateTimestamp}}</small>
         <hr>
@@ -95,5 +95,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "assets/variables";
-@import "assets/parallax";
+@import "assets/header";
 </style>
