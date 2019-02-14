@@ -42,6 +42,12 @@
             <h3>Mgtr. Lourdes Cueva</h3>
             <h4>Evaluación Docente</h4>
           </div>
+           <div class="col-md-12 avatar">
+            <img class="img-avatar"
+                 :src="quienesSomos.natie"
+                 alt="Vicerector">
+            <h3>NATHALIE RENCORET</h3>
+          </div>
         </div>
       </div>
     </div>
@@ -70,6 +76,7 @@ export default {
   height: 85px;
   border-radius: 50%;
   margin: 10px;
+  object-fit: cover;
 }
 .avatar {
   text-align: center;
