@@ -8,7 +8,7 @@
       </nuxt-link>
       <div class="nav">
         <div class="dropdown">
-          <nuxt-link :to="{name: 'acerca-nosotros-nuestros-servicios'}">
+          <nuxt-link class="dropbtn" :to="{name: 'acerca-nosotros-nuestros-servicios'}">
             Servicios
           </nuxt-link>
         </div>
