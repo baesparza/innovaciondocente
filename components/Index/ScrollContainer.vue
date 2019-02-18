@@ -81,6 +81,11 @@ export default {
           active: false,
           goto: "formacion-docente-cafe-cientifico"
         },
+        vitaminaI: {
+          name: "Vitamina i",
+          link:
+            "https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FResumen%20del%20programa%20de%20formacioe%CC%8Cn%202019%20Microtalleres%202019.pdf?alt=media&token=e5ce6ae7-d0b4-4c6f-ad8a-23d88a6c37c9"
+        },
         InnovaTips: {
           name: "InnovaTips",
           active: false,
@@ -90,10 +95,6 @@ export default {
           name: "Noticias",
           active: false,
           goto: "observatorio-edutendencias-noticias"
-        },
-        vitaminaI: {
-          name: "Vitamina i",
-          link: "https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FResumen%20del%20programa%20de%20formacioe%CC%8Cn%202019%20Microtalleres%202019.pdf?alt=media&token=e5ce6ae7-d0b4-4c6f-ad8a-23d88a6c37c9"
         }
       }
     };

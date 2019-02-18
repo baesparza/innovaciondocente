@@ -14,6 +14,12 @@
         <EncuentroCard :encuentro="encuentro"
                        class="card" />
       </div>
+      <div class="aspect-ratio"
+           v-for="vitamina in vitaminas"
+           :key="vitamina.id">
+        <VitaminaCard :vitamina="vitamina"
+                       class="card" />
+      </div>
     </div>
     <div v-else>
       <span>No hay próximos Encuentros. Visita nuestra Pagina de Encuentros</span>
@@ -25,12 +31,14 @@
 import { AFirestore } from "~/plugins/firebase.js";
 import SectionHeader from "@/components/sections/SectionHeader";
 import EncuentroCard from "@/components/cards/EncuentroCard";
+import VitaminaCard from "@/components/cards/VitaminaCard";
 
 export default {
-  components: { SectionHeader, EncuentroCard },
+  components: { SectionHeader, EncuentroCard, VitaminaCard },
   data() {
     return {
       encuentros: null,
+      vitaminas: null,
       loading: true
     };
   },
@@ -38,14 +46,24 @@ export default {
     try {
       const temp = new Date();
       const startDate = new Date(temp.getFullYear(), temp.getMonth());
-      const querySnapshot = await AFirestore.collection(
+      const encuentrosSnapshot = await AFirestore.collection(
         "formacion-docente/cafe-cientifico/encuentros"
       )
         .where("date", ">=", startDate)
         .orderBy("date", "desc")
         .get();
-      if (!querySnapshot.isEmpty)
-        this.encuentros = querySnapshot.docs.map(doc =>
+      if (!encuentrosSnapshot.isEmpty)
+        this.encuentros = encuentrosSnapshot.docs.map(doc =>
+          Object.assign({ id: doc.id, ...doc.data() })
+        );
+      const vitaminaSnapshot = await AFirestore.collection(
+        "formacion-docente/cafe-cientifico/vitamina-i"
+      )
+        .where("date", ">=", startDate)
+        .orderBy("date", "desc")
+        .get();
+      if (!vitaminaSnapshot.isEmpty)
+        this.vitaminas = vitaminaSnapshot.docs.map(doc =>
           Object.assign({ id: doc.id, ...doc.data() })
         );
     } catch (error) {
