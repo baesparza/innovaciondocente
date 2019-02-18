@@ -14,12 +14,13 @@
       <!--Cursos section-->
       <section>
         <CursosSection :programFormacionDocente="programFormacionDocente"
-                :description="description" />
+                       :informeNecesidades="informeNecesidades"
+                       :description="description" />
       </section>
 
       <!--Videos section-->
       <section>
-        <InnovaTipsSection :description="tips.description"/>
+        <InnovaTipsSection :description="tips.description" />
       </section>
 
       <!--PDF sections-->

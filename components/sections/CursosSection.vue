@@ -13,6 +13,12 @@
          :href="programFormacionDocente">
         Descarga el Programa de Formación Docente | {{getDate}}
       </a>
+      <a rel="noopener"
+         target="_blank"
+         v-if="informeNecesidades"
+         :href="informeNecesidades.link">
+        {{informeNecesidades.label}}
+      </a>
     </p>
     <div v-if="loading">
       <span>Cargando...</span>
@@ -37,22 +43,22 @@ import CursoCard from "@/components/cards/CursoCard";
 import SectionHeader from "@/components/sections/SectionHeader";
 
 export default {
-  props: ["description", "isIndex", "programFormacionDocente"],
+  props: ["description", "isIndex", "programFormacionDocente", "informeNecesidades"],
   components: { CursoCard, SectionHeader },
   data() {
-    return { cursos: null, loading: true};
+    return { cursos: null, loading: true };
   },
   async mounted() {
     try {
       let cursosSnap = null;
-        const temp = new Date();
-        const startDate = new Date(temp.getFullYear(), temp.getMonth());
-        cursosSnap = await AFirestore.collection(
-          "formacion-docente/programa-formacion/cursos"
-        )
-          .where("date", ">=", startDate)
-          .orderBy("date", "desc")
-          .get();
+      const temp = new Date();
+      const startDate = new Date(temp.getFullYear(), temp.getMonth());
+      cursosSnap = await AFirestore.collection(
+        "formacion-docente/programa-formacion/cursos"
+      )
+        .where("date", ">=", startDate)
+        .orderBy("date", "desc")
+        .get();
       // } else {
       //   cursosSnap = await AFirestore.collection(
       //     "formacion-docente/programa-formacion/cursos"
@@ -72,7 +78,7 @@ export default {
   },
   computed: {
     getDate() {
-return new Date().getFullYear();
+      return new Date().getFullYear();
     },
     getTitle() {
       return this.isIndex ? "Próximos Cursos" : "Cursos Actuales";
@@ -105,5 +111,3 @@ return new Date().getFullYear();
   }
 }
 </style>
-
-
