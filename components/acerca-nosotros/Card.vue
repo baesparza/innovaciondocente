@@ -22,7 +22,7 @@
                  v-if="goto"
                  :to="goto">Ver más</nuxt-link>
       <a class="button"
-         v-else-if="!goto && link"
+         v-if="link"
          :href="link"
          target="_blank"
          rel="noopener noreferrer">Conoce nuestra oferta</a>
