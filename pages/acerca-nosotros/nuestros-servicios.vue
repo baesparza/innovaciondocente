@@ -21,13 +21,13 @@
           <Card title="Master Class Vitamina I"
                 description="Master Class Vitamina I, son espacios en el que varios docentes compartirán sus experiencias y conocimientos sobre metodologías docentes que están aplicando en el aprendizaje de nuestros estudiantes. Conoce nuestra oferta."
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(4).png?alt=media&token=03d0e8a0-3365-44fc-886e-dc91f1af1573"
-                link='https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FResumen%20del%20programa%20de%20formacioe%CC%8Cn%202019%20Microtalleres%202019.pdf?alt=media&token=e5ce6ae7-d0b4-4c6f-ad8a-23d88a6c37c9' />
+                link='https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FMASTER%20CLASS%20VITAMINA%20I.pdf?alt=media&token=89fe7fd8-8493-4ce5-96f2-a44880a42437' />
           <Card title="Nuestro debate estudiantil"
                 description="Espacio de diálogo dónde se problematizan temáticas diversas o se abordan temas de actualidad, y se desafía a estudiantes universitarios y de bachillerato a que propongan soluciones creativas, bajo la guía de docentes de la UTPL."
                 link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Nuestro.png?alt=media&token=acbde1b1-d84a-463b-bb9b-ca8988b6ff23"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(2).png?alt=media&token=72d8d189-6542-49b3-9362-0028c96f6fdb" />
           <Card title="Talleres académicos ¡Potenciate UTPL!"
-                link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Talleres.png?alt=media&token=e8caf314-9c7e-43de-bc24-d65c1505ff5b"
+                link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FTalleres%202019.png?alt=media&token=e2a30af2-0961-4943-8e31-efd90bf3c28e"
                 description="Talleres prácticos en los que estudiantes de bachillerato a través de un aprendizaje basado en retos, se involucran activamente en problemáticas reales acordes a los perfiles profesionales de las diferentes carreras de la UTPL, bajo la guía de docentes y estudiantes universitarios. Estos espacios se convierten además en un medio para orientar a los participantes en sus intereses vocacionales y futuro profesional."
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(3).png?alt=media&token=e39fb1db-ef66-4162-b77a-104c6e587410" />
 
@@ -43,7 +43,7 @@
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/index%2Fformacion.png?alt=media&token=873c00e4-f329-48e7-9e2f-19d21f965f54" />
           <Card title="Cafe Científico"
                 description="Cada último jueves del mes en la UTPL, expertos y profesionales en diferentes campos dialogan y problematizan sobre un tema actual de una forma diferente e informal. Su finalidad es escuchar opiniones diversas y realizar algunos postulados que contribuyan al trabajo posterior y que ayuden a fomentar inquietudes que despiertan una entretenida discusión"
-                link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/observatorio-edutendencias%2Fnoticias%2FCalendario%20anual%20Caf%C3%A9%202019.png?alt=media&token=fc2e1d2c-69aa-4ce8-a76e-e85f1ca949d7"
+                link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Cafe%C3%AC%20Cienti%C3%ACfico%202019.png?alt=media&token=d0deab6d-5ebc-4d07-8cfc-1d40bc534d1e"
                 :goto="{name: 'formacion-docente-cafe-cientifico'}"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Farte_jarro_cafe_cientifico_enero_2018.png?alt=media&token=8a251586-c55e-4407-892d-b8a03e0d3405" />
         </section>

@@ -131,7 +131,7 @@ export default {
   },
   head() {
     return {
-      title: "Suscripción Café Científico  "
+      title: "Inscripcion Café Científico  "
     };
   },
   methods: {
@@ -153,12 +153,17 @@ export default {
               })
               .catch(function(error) {
                 console.log(error);
-                alert("HA OCURRIDO UN ERROR, VUELVE A INTENTARLO");
+                alert(
+                  "HA OCURRIDO UN ERROR, Por favro envianos un correo a narencoret@utpl.edu.ec "
+                );
               });
           }
         })
         .catch(e => {
           console.log(e);
+          alert(
+            "HA OCURRIDO UN ERROR, Por favro envianos un correo a narencoret@utpl.edu.ec "
+          );
         });
     }
   }
