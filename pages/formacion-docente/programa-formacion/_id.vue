@@ -53,7 +53,7 @@
               <li v-for="(instructor, i) in curso.instructors"
                   :key="i">
                 {{instructor.name}}
-                <small v-if="instructor.small">({{instructor.about}})</small>
+                <small v-if="instructor.about">({{instructor.about}})</small>
               </li>
             </ul>
           </span>
@@ -67,7 +67,7 @@
             {{curso.endDate | dateTimestamp}}
           </p>
           <!---->
-          <span v-if="curso.duration">
+          <span v-if="curso.duration&& curso.duration.hours &&curso.duration.days && curso.duration.weeks">
             <b>Duración:</b>
             <ul>
               <li v-if="curso.duration.hours">{{ curso.duration.hours }} Horas</li>
