@@ -3,6 +3,35 @@
     <header>
       <h1>Convocatoria de Proyectos de Innovación Docente</h1>
     </header>
+    <section class="container">
+      <p>
+        Presentamos la décimo cuarta convocatoria para participar en Buenas Prácticas y Proyectos
+        de Innovación Docente con el propósito de mejorar el proceso de enseñanza-aprendizaje,
+        impulsar la creación y consolidación de equipos de docentes interesados en el desarrollo de
+        la innovación académica y facilitar la difusión de las experiencias innovadoras que se
+        realizan en la institución.
+      </p>
+      <div class="embed-iframe-container">
+
+        <iframe width="1269"
+                height="714"
+                src="https://www.youtube.com/embed/w9akIdgKMno"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-md-8">
+          <a href="https://www.e-encuesta.com/r/7P-nA3SCo_hrPFjmbI3hsQ/XIV_convocatoriaPID_abril-agosto2019"
+             target="_blank"
+             rel="noopener noreferrer">
+            <img src="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/innovacion-docente%2Fconvocatorias%2FMailing.png?alt=media&token=59cdcbb3-94f5-467e-8bcc-679ee78800d1"
+                 alt="Convocatoria XIV"></a>
+        </div>
+        <div class="col"></div>
+      </div>
+    </section>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -11,7 +40,6 @@
           <section class="sticky">
             <h3>Convocatorias Anteriores</h3>
             <div v-for="(convocatoria, key) in convocatorias"
-                 v-if="convocatoria"
                  :key="key">
               <a class="btn btn-outline-dark btn-large"
                  :href="convocatoria.url"
@@ -147,6 +175,26 @@ export default {
   height: 0;
   overflow: hidden;
   embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.embed-iframe-container {
+  width: 100%;
+  padding-top: 56.25%;
+
+  position: relative;
+  overflow: hidden;
+  margin: 15px 0 15px 0;
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+  iframe {
     position: absolute;
     top: 0;
     left: 0;
