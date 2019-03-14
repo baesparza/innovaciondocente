@@ -19,6 +19,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/sitemap": "^0.2.2",
     "firebase": "^5.5.1",
     "npm": "^6.4.1",
     "nuxt": "^1.0.0",

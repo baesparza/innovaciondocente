@@ -1,19 +1,22 @@
 /* nuxt.config.js */
 // only add `router.base = '/<repository-name>/'` if `DEPLOY_ENV` is `GH_PAGES`
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-  base: '/innovaciondocente/'
-} : {};
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        base: '/innovaciondocente/'
+      }
+    : {};
 
 module.exports = {
   /**
    * router base
    */
   router: {
-    scrollBehavior: function (to, from, savedPosition) {
+    scrollBehavior: function(to, from, savedPosition) {
       return {
         x: 0,
         y: 0
-      }
+      };
     },
     ...routerBase
   },
@@ -23,13 +26,14 @@ module.exports = {
   head: {
     titleTemplate: '%s | Proyecto Ascendere',
     htmlAttrs: {
-      xmlns: "http://www.w3.org/1999/xhtml",
-      'xml:lang': "es",
-      lang: "es",
-      dir: "ltr"
+      xmlns: 'http://www.w3.org/1999/xhtml',
+      'xml:lang': 'es',
+      lang: 'es',
+      dir: 'ltr'
     },
     nativeUI: true,
-    meta: [{
+    meta: [
+      {
         charset: 'utf-8'
       },
       {
@@ -62,7 +66,8 @@ module.exports = {
         content: 'yes'
       }
     ],
-    link: [{
+    link: [
+      {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.0.13/css/solid.css'
       },
@@ -83,7 +88,7 @@ module.exports = {
   loadingIndicator: {
     name: 'three-bounce',
     color: 'white',
-    background: "#044a80"
+    background: '#044a80'
   },
   mode: 'spa',
   manifest: {
@@ -92,22 +97,19 @@ module.exports = {
     short_name: 'Ascendere',
     start_url: '/',
     display: 'standalone',
-    orientation: "portrait",
-    background_color: "#044a80",
-    theme_color: "#044a80",
+    orientation: 'portrait',
+    background_color: '#044a80',
+    theme_color: '#044a80'
   },
   build: {
-    extend(config, {
-      isDev,
-      isClient
-    }) {
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     },
     optimization: {
@@ -116,23 +118,19 @@ module.exports = {
       }
     },
     extractCSS: true,
-    vendor: [
-      'vee-validate',
-      'axios',
-      'vue-lazyload',
-      'firebase/app',
-      'firebase/firestore',
-    ]
+    vendor: ['vee-validate', 'axios', 'vue-lazyload', 'firebase/app', 'firebase/firestore']
   },
   css: [
     '@/assets/style.scss',
     '@/assets/router-transition.scss',
-    '@/assets/bootstrap/bootstrap-grid.scss',
+    '@/assets/bootstrap/bootstrap-grid.scss'
   ],
   modules: [
     '@nuxtjs/pwa'
+    // '@nuxtjs/sitemap'
   ],
-  plugins: [{
+  plugins: [
+    {
       src: '~/plugins/vee-validate.js',
       ssr: true
     },
@@ -149,4 +147,4 @@ module.exports = {
       ssr: true
     }
   ]
-}
+};

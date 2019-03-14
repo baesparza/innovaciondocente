@@ -1,0 +1,4 @@
+# Allow all URLs (see https://innovaciondocente.utpl.edu.ec/)
+User-agent: *
+Disallow:
+Sitemap: https://innovaciondocente.utpl.edu.ec/sitemap.xml
