@@ -4,7 +4,7 @@
       <h1>{{getTitle}}</h1>
     </header>
     <section class="container">
-      <ProjectsCanvasSection v-if="canShowCanvas" />
+      <ProjectsCanvasSection v-if="canShowCanvas && projectType === 'proyecto-actual'" />
       <ProjectsSection :projectType="projectType"
                        :projectArea="projectArea" />
     </section>
@@ -18,11 +18,6 @@ import ProjectsCanvasSection from "@/components/sections/ProjectsCanvasSection";
 export default {
   components: { ProjectsSection, ProjectsCanvasSection },
   watchQuery: ["type", "area"],
-  watch: {
-    projectType() {
-      this.init();
-    }
-  },
   data() {
     const query = this.$route.query;
     return {
@@ -56,4 +51,3 @@ export default {
 <style lang="scss" scoped>
 @import "assets/header";
 </style>
-
