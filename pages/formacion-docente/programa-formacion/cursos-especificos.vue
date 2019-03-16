@@ -20,7 +20,7 @@
             Adjuntar los contenidos del curso en el formato establecido
             <a target="_blank"
                rel="noopener"
-               href="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/formacion-docente%2Fprograma-formacion%2FCursos%20Espec%C3%ADficos%2FFormato%20Pliego%20Datos%20Curso.doc?alt=media&token=6ebee776-663f-46ba-b1d0-b64213c73116">
+               href="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/formacion-docente%2Fprograma-formacion%2FCursos%20Espec%C3%ADficos%2FFormato%20Pliego%20Datos%20Curso.docx?alt=media&token=523960df-4022-498c-8288-6c64e669e126">
               (Descargar aquí)
               <i class="fas fa-file-word"></i>
             </a>
@@ -29,7 +29,7 @@
             Adjuntar presupuesto en caso de requerir
             <a target="_blank"
                rel="noopener"
-               href="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/formacion-docente%2Fprograma-formacion%2FCursos%20Espec%C3%ADficos%2FFormato%20Presupuesto%20Curso%20Especifico.xlsx?alt=media&token=1ac080b8-2ad9-492b-a28f-3eb3ae8e4be2">
+               href="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/formacion-docente%2Fprograma-formacion%2FCursos%20Espec%C3%ADficos%2FFormato%20Presupuesto%20Curso%20Especifico.xlsx?alt=media&token=13b86269-6451-4202-8c6b-91941bcdc40c">
               (Descargar aquí)
               <i class="fas fa-file-excel"></i>
             </a>
