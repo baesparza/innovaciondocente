@@ -60,8 +60,10 @@
       <br>
     </div>
     <div class="form-group">
-      <label for="preg_2">2. Valore la aplicabilidad del tema: Desarrollo de competencias transversales en el aula de clases:
-        innovación, creatividad y emprendimiento</label>
+      <label for="preg_2">2. Valore la aplicabilidad del tema: Gamifi…¿qué?: Hagamos del
+        aprendizaje algo divertido.
+
+      </label>
       <select v-model="forma.preg_2"
               class="form-control"
               id="preg_2"
@@ -83,7 +85,8 @@
               v-validate="'required|not_in:Choose'">
         <option value="Aspectos de docencia">Aspectos de docencia</option>
         <option value="Aspectos de investigacion">Aspectos de investigacion</option>
-        <option value="Aspectos de vinculación con la sociedad">Aspectos de vinculación con la sociedad</option>
+        <option value="Aspectos de vinculación con la sociedad">Aspectos de vinculación con la
+          sociedad</option>
       </select>
       <span v-show="errors.has('preg_2_1')"
             class="alert alert-danger">Es requerido</span>
@@ -152,7 +155,8 @@
       </div>
       <div class="form-group">
         <label for="preg_3_2">
-          3.2 Valore el contenido y metodología de la charla magistral "Un docente aprendiendo"
+          3.2 Valore el contenido y metodología de la charla magistral "Gamifi…¿qué?: Juego y
+          Educación Superior”
         </label>
         <br>
         <fieldset class="rating"
@@ -212,7 +216,8 @@
       </div>
       <div class="form-group">
         <label for="preg_3_3">
-          3.3 Valore el taller práctico"ADN Innovador".
+          3.3 Valore el trabajo en equipo "Puzzle #UTPLFuturo".
+
         </label>
         <br>
         <fieldset class="rating"
@@ -272,7 +277,8 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="preg_4">4. ¿Qué temáticas consideras importante que se traten en próximas jornadas?</label>
+      <label for="preg_4">4. ¿Qué temáticas consideras importante que se traten en próximas
+        jornadas?</label>
       <textarea v-model="forma.preg_4"
                 type="text"
                 name="preg_4"
@@ -384,4 +390,3 @@ export default {
   color: lighten($color: $color-primary, $amount: 40);
 }
 </style>
-
