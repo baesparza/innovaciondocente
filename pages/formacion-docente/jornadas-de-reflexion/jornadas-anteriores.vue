@@ -15,7 +15,7 @@
           </nuxt-link>
           <nuxt-link class="btn btn-primary btn-large"
                      :to="{name: 'formacion-docente-jornadas-de-reflexion'}">
-            Jornada Actual
+            Regresar
           </nuxt-link>
         </section>
       </div>

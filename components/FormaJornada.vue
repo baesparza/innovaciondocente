@@ -95,7 +95,7 @@
       <label>3. Valore los siguientes aspectos contemplados en la jornada:</label>
       <div class="form-group">
         <label for="preg_3_1">
-          3.1 Valore el contenido, metodología y organización general de la Jornada
+          3.1 Contenido y metología de los resultados de las buenas prácticas de innovación docente
         </label>
         <br>
         <fieldset class="rating"
@@ -155,8 +155,7 @@
       </div>
       <div class="form-group">
         <label for="preg_3_2">
-          3.2 Valore el contenido y metodología de la charla magistral "Gamifi…¿qué?: Juego y
-          Educación Superior”
+          3.2 Contenido y metodología del pilotaje de aprendizaje basado en retos.
         </label>
         <br>
         <fieldset class="rating"
@@ -216,8 +215,8 @@
       </div>
       <div class="form-group">
         <label for="preg_3_3">
-          3.3 Valore el trabajo en equipo "Puzzle #UTPLFuturo".
-
+          3.3 Contenido y metodología de la charla magistral "Gamifi…¿qué?: Juego y Educación
+          Superior”.
         </label>
         <br>
         <fieldset class="rating"
@@ -275,6 +274,66 @@
         </fieldset>
         <br>
       </div>
+      <div class="form-group">
+        <label for="preg_3_4">
+          3.4 Dinámica grupal puzzle “#UTPLFuturo".
+        </label>
+        <br>
+        <fieldset class="rating"
+                  name="preg_3_4">
+          <input type="radio"
+                 id="preg_3_4_star5"
+                 name="preg_3_4_rating"
+                 v-model="forma.preg_3_4"
+                 value="5" />
+          <label class="full"
+                 for="preg_3_4_star5"
+                 title="Excelente">
+            <i class="fas fa-star"></i>
+          </label>
+          <input type="radio"
+                 id="preg_3_4_star4"
+                 name="preg_3_4_rating"
+                 v-model="forma.preg_3_4"
+                 value="4" />
+          <label class="full"
+                 for="preg_3_4_star4"
+                 title="Muy bueno">
+            <i class="fas fa-star"></i>
+          </label>
+          <input type="radio"
+                 id="preg_3_4_star3"
+                 name="preg_3_4_rating"
+                 v-model="forma.preg_3_4"
+                 value="3" />
+          <label class="full"
+                 for="preg_3_4_star3"
+                 title="Bueno">
+            <i class="fas fa-star"></i>
+          </label>
+          <input type="radio"
+                 id="preg_3_4_star2"
+                 name="preg_3_4_rating"
+                 v-model="forma.preg_3_4"
+                 value="2" />
+          <label class="full"
+                 for="preg_3_4_star2"
+                 title="Regular">
+            <i class="fas fa-star"></i>
+          </label>
+          <input type="radio"
+                 id="preg_3_4_star1"
+                 name="preg_3_4_rating"
+                 v-model="forma.preg_3_4"
+                 value="1" />
+          <label class="full"
+                 for="preg_3_4_star1"
+                 title="Malo">
+            <i class="fas fa-star"></i>
+          </label>
+        </fieldset>
+        <br>
+      </div>
     </div>
     <div class="form-group">
       <label for="preg_4">4. ¿Qué temáticas consideras importante que se traten en próximas
@@ -315,6 +374,7 @@ export default {
       preg_3_1: 1,
       preg_3_2: 1,
       preg_3_3: 1,
+      preg_3_4: 1,
       preg_4: null,
       preg_5: null
     };

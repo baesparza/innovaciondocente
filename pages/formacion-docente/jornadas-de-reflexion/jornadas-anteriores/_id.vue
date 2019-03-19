@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1>{{data.nombre}}</h1>
+    <h1>JORNADA DE REFLEXIÓN ACADÉMICA</h1>
+    <h3>
+      <small>{{data.periodo}}</small>
+    </h3>
     <small v-if="data.autor">
       <i class="fas fa-user"></i> {{data.autor}}
     </small>
@@ -27,7 +30,7 @@ export default {
   },
   head() {
     return {
-      title: this.data.nombre  ,
+      title: this.data.nombre,
       meta: [
         {
           hid: "description",
@@ -42,4 +45,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "assets/html";
+
+h3 {
+  text-transform: uppercase;
+}
 </style>
