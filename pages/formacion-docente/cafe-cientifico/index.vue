@@ -14,21 +14,23 @@
                    class="container"
                    style="cursor:pointer">
           <h1>{{ultimoEncuentro.name}}</h1>
+          <small v-if="ultimoEncuentro.date ">
+            <i class="fas fa-calendar-alt"></i>
+            {{ultimoEncuentro.date | dateTimestamp}}</small>
           <div class="row">
-            <div class="col-lg-5 no-mobile">
-              <figure :style="'background-image: url('+ultimoEncuentro.img+');'"></figure>
-              <ul v-if="ultimoEncuentro.guests">
-                <h3>
-                  <i class="fas fa-users"></i> Invitados
-                </h3>
-                <li v-for="(guest, index) in ultimoEncuentro.guests"
-                    :key="index">{{ guest.name }}</li>
-              </ul>
-            </div>
+            <ul class="col-lg-5 no-mobile"
+                v-if="ultimoEncuentro.guests && ultimoEncuentro.guests.length > 0">
+              <h3>
+                <i class="fas fa-users"></i> Invitados
+              </h3>
+              <li v-for="(guest, index) in ultimoEncuentro.guests"
+                  :key="index">{{ guest.name }}</li>
+            </ul>
             <div class="col-lg-7">
-              <small><i class="fas fa-calendar-alt"></i> {{ultimoEncuentro.date | dateTimestamp}}</small>
-              <p class="no-mobile auto-break">{{ultimoEncuentro.description | slice(0,700)}}</p>
-              <p class="no-desktop auto-break">{{ultimoEncuentro.description | slice(0,300)}}</p>
+              <p v-if="ultimoEncuentro.desciption"
+                 class="no-mobile auto-break">{{ultimoEncuentro.description | slice(0,700)}}</p>
+              <p v-if="ultimoEncuentro.desciption"
+                 class="no-desktop auto-break">{{ultimoEncuentro.description | slice(0,300)}}</p>
             </div>
           </div>
         </nuxt-link>
@@ -261,4 +263,3 @@ section {
   }
 }
 </style>
-
