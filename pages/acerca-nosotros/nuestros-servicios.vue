@@ -24,7 +24,7 @@
                 link='https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FMASTER%20CLASS%20VITAMINA%20I.pdf?alt=media&token=89fe7fd8-8493-4ce5-96f2-a44880a42437' />
           <Card title="Nuestro debate estudiantil"
                 description="Espacio de diálogo dónde se problematizan temáticas diversas o se abordan temas de actualidad, y se desafía a estudiantes universitarios y de bachillerato a que propongan soluciones creativas, bajo la guía de docentes de la UTPL."
-                link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCalendario%20Nuestro.png?alt=media&token=acbde1b1-d84a-463b-bb9b-ca8988b6ff23"
+                link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FCALENDARIO%20DEBATE%202019.png?alt=media&token=e6838b7e-4c79-4321-89f8-c23d4a124945"
                 image="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2Ftres_nuevos_sellos_PFD_febrero_2019%20(2).png?alt=media&token=72d8d189-6542-49b3-9362-0028c96f6fdb" />
           <Card title="Talleres académicos ¡Potenciate UTPL!"
                 link="https://firebasestorage.googleapis.com/v0/b/innovaciondocente-utpl.appspot.com/o/acerca-nosotros%2FTalleres%202019.png?alt=media&token=e2a30af2-0961-4943-8e31-efd90bf3c28e"
